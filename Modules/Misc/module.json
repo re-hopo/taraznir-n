@@ -1,0 +1,11 @@
+{
+    "name": "Misc",
+    "alias": "misc",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Misc\\Providers\\MiscServiceProvider"
+    ],
+    "files": []
+}
