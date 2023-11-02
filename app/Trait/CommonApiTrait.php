@@ -8,7 +8,7 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Modules\Misc\Models\Category;
+use Modules\Theme\Models\Category;
 
 trait CommonApiTrait{
 

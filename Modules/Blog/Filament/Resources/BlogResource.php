@@ -6,7 +6,10 @@ namespace Modules\Blog\Filament\Resources;
 use App\Trait\CommonFilamentResource;
 use Exception;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Modules\Blog\Filament\Resources\BlogResource\Pages\CreateBlog;
 use Modules\Blog\Filament\Resources\BlogResource\Pages\EditBlog;
 use Modules\Blog\Filament\Resources\BlogResource\Pages\ListBlogs;
+use Modules\Blog\Filament\Resources\BlogResource\Pages\ViewBlog;
 use Modules\Blog\Models\Blog;
 
 class BlogResource extends Resource
@@ -104,4 +108,9 @@ class BlogResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
+
+
+
+
 }

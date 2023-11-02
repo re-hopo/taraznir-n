@@ -3,13 +3,15 @@
 namespace App\Trait;
 
 
+use Awcodes\Curator\Models\Media;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Misc\Helpers\MiscHelper;
-use Modules\Misc\Models\Category;
+use Modules\Theme\Helpers\MiscHelper;
+use Modules\Theme\Models\Category;
 
 
 trait CommonModelMethodsTrait{
@@ -32,9 +34,14 @@ trait CommonModelMethodsTrait{
     }
 
 
+    public function featuredImage(): BelongsTo
+    {
+        return $this->belongsTo(Media::class, 'featured_image_id', 'id');
+    }
+
     public function meta(): MorphMany
     {
-        return $this->morphMany('Modules\Misc\Models\Meta' ,'metaable');
+        return $this->morphMany('Modules\Theme\Models\Meta','metaable');
     }
 
 

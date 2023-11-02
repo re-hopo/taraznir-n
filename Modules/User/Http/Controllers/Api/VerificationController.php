@@ -7,8 +7,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Modules\Misc\Helpers\MiscHelper;
-use Modules\Misc\Http\Controllers\SMSController;
+use Modules\Theme\Helpers\MiscHelper;
+use Modules\Theme\Http\Controllers\SMSController;
 use Modules\User\Http\Requests\VerifyRegistrationCodeRequest;
 use Modules\User\Models\User;
 

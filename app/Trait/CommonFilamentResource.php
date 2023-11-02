@@ -12,16 +12,18 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Misc\Models\Category;
+use Modules\Theme\Models\Category;
 
 trait CommonFilamentResource
 {
@@ -44,9 +46,8 @@ trait CommonFilamentResource
     public static function formMedia(): Section
     {
         return Section::make()->schema([
-            CuratorPicker::make('cover')
-
-                ->orderColumn('order'),
+            CuratorPicker::make('تصویر شاخص')
+                ->relationship('featuredImage', 'id'),
         ]);
     }
 
@@ -124,7 +125,7 @@ trait CommonFilamentResource
                         Select::make('key')
                             ->options( $options )
                             ->required(),
-                        TextInput::make('value')
+                        Textarea::make('value')
                             ->label('مقدار')
                             ->required(),
                     ])
@@ -139,9 +140,13 @@ trait CommonFilamentResource
     public static function tableCover(): CuratorColumn
     {
         return
-            CuratorColumn::make('cover')
-                ->size(40);
+            CuratorColumn::make('featuredImage')
+                ->label('تصویر شاخص' )
+                ->size(40 )
+                ->ring(2)
+                ->overlap(4);
     }
+
 
     public static function tableTitle(): TextColumn
     {
@@ -175,8 +180,9 @@ trait CommonFilamentResource
     public static function actions(): array
     {
         return [
-             EditAction::make(),
-             DeleteAction::make(),
+            DeleteAction::make(),
+            ForceDeleteAction::make(),
+            RestoreAction::make(),
         ];
     }
 
@@ -186,9 +192,11 @@ trait CommonFilamentResource
     public static function bulkActions(): array
     {
         return [
-            DeleteBulkAction::make(),
-            RestoreBulkAction::make(),
-            ForceDeleteBulkAction::make(),
+            BulkActionGroup::make([
+                DeleteBulkAction::make(),
+                ForceDeleteBulkAction::make(),
+                RestoreBulkAction::make(),
+            ]),
         ];
     }
 

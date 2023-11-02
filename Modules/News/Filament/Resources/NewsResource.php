@@ -4,23 +4,22 @@ namespace Modules\News\Filament\Resources;
 
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\MultiSelect;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Misc\Models\Category;
-use Modules\News\Filament\Resources\NewsResource\Pages;
-use Modules\News\Filament\Resources\NewsResource\RelationManagers;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\News\Filament\Resources\NewsResource\Pages;
+use Modules\News\Filament\Resources\NewsResource\RelationManagers;
 use Modules\News\Models\News;
+use Modules\Theme\Models\Category;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class NewsResource extends Resource

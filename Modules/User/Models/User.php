@@ -2,16 +2,18 @@
 
 namespace Modules\User\Models;
 
+use Althinect\FilamentSpatieRolesPermissions\Concerns\HasSuperAdmin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens ,HasFactory ,Notifiable ,HasRoles ,HasSuperAdmin;
 
     /**
      * The attributes that are mass assignable.
@@ -53,7 +55,7 @@ class User extends Authenticatable
 
     public function isAdmin(): bool
     {
-        return $this->meta()->where('key' ,'is_admin' )->count();
+        return true;
     }
 
     public function getFilamentAvatarUrl(): ?string
@@ -63,6 +65,6 @@ class User extends Authenticatable
 
     public function meta(): MorphMany
     {
-        return $this->morphMany('Modules\Misc\Models\Meta' , 'metaable');
+        return $this->morphMany('Modules\Theme\Models\Meta', 'metaable');
     }
 }
