@@ -2,31 +2,35 @@
 
 namespace Modules\Theme\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Forms\Components\Card;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Resources\Form;
+
+
+use App\Trait\CommonFilamentResource;
+use Exception;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Misc\Filament\Resources\OptionResource\Pages;
-use Modules\Misc\Filament\Resources\OptionResource\RelationManagers;
+use Modules\Theme\Filament\Resources\OptionResource\Pages\CreateOption;
+use Modules\Theme\Filament\Resources\OptionResource\Pages\EditOption;
+use Modules\Theme\Filament\Resources\OptionResource\Pages\ListOptions;
 use Modules\Theme\Models\Option;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class OptionResource extends Resource
 {
+    use CommonFilamentResource;
+
     protected static ?string $model = Option::class;
+
+    protected static ?string $label = ' گزینه‌ها  ';
     protected static ?string $navigationIcon = 'heroicon-o-cog';
-    protected static ?string $label = 'Options';
-    protected static ?string $navigationGroup = 'setting';
+    protected static ?string $navigationGroup = 'پست ها';
     protected static ?int $navigationSort = 1;
-    protected static function getNavigationBadge(): ?string
+
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
@@ -34,77 +38,54 @@ class OptionResource extends Resource
 
     public static  function can(string $action, ?Model $record = null): bool
     {
-        return auth()->user()->isAdmin() || auth()->user()->getAllPermissions()->where('name' ,'Option')->count();
+        return auth()->user()->isAdmin();
     }
 
     public static function form(Form $form): Form
     {
+
+
         return $form
             ->schema([
-                Card::make()->schema([
-                    Forms\Components\TextInput::make('title')
-                        ->label('Title')
-                        ->required(),
-                    Forms\Components\TextInput::make('key')
-                        ->label('Key')
-                        ->required() ,
-                    Forms\Components\Toggle::make('type')
-                        ->onColor('yellow')
-                        ->offColor('black')
-                        ->label('Save As HTML'),
-                    TinyEditor::make('value')
-                        ->label('Content'),
-                    SpatieMediaLibraryFileUpload::make('cover')
-                        ->enableReordering()
-                        ->multiple()
-                        ->placeholder('Upload Attachment')
-                        ->label('Attachment')
-                        ->imagePreviewHeight(100)  ,
-                ]),
-                Card::make()->schema([
-                    TableRepeater::make('meta')
-                        ->label('Meta')
-                        ->relationship('meta')
-                        ->schema([
-                            Forms\Components\TextInput::make('key')
-                                ->label('Key')
-                                ->required(),
-                            Forms\Components\TextInput::make('value')
-                                ->label('Value')
-                                ->required(),
-                        ])
-                        ->collapsible()
-                        ->defaultItems(0),
+                Grid::make()->columns(12)->schema([
+                    Grid::make()->schema([
+                        self::formTitle(),
+                        self::formKey(),
+                        self::formToggleTextType(),
+                        self::formEditor('value'),
+                        self::formMetaTextAndAttachment(),
+                    ])->columnSpan(9),
+
+                    Grid::make()->schema([
+                        self::formAttachment(),
+                    ])->columnSpan(3),
                 ]),
             ]);
-
-
     }
 
+
+    /**
+     * @throws Exception
+     */
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                SpatieMediaLibraryImageColumn::make('cover')
-                    ->label('تصویر') ,
-
-                Tables\Columns\TextColumn::make('title')
-                    ->label('Title') ,
-
-                Tables\Columns\TextColumn::make('key')
-                    ->label('Key')
-                    ->sortable(),
+                self::tableTitle(),
+                TextColumn::make('key')
+                    ->sortable()
+                    ->label('کلید'),
             ])
-            ->defaultSort('key')
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ->defaultSort('id')
+            ->filters(
+                self::filters()
+            )
+            ->actions(
+                self::actions()
+            )
+            ->bulkActions(
+                self::bulkActions()
+            );
     }
 
     public static function getRelations(): array
@@ -117,9 +98,9 @@ class OptionResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => \Modules\Theme\Filament\Resources\OptionResource\Pages\ListOptions::route('/'),
-            'create' => \Modules\Theme\Filament\Resources\OptionResource\Pages\CreateOption::route('/create'),
-            'edit' => \Modules\Theme\Filament\Resources\OptionResource\Pages\EditOption::route('/{record}/edit'),
+            'index' => ListOptions::route('/'),
+            'create' => CreateOption::route('/create'),
+            'edit' => EditOption::route('/{record}/edit'),
         ];
     }
 
@@ -130,4 +111,7 @@ class OptionResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
+
 }
+

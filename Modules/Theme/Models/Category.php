@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Project\Models\Project;
 use Modules\Standard\Models\Standard;
-use Modules\Theme\Helpers\MiscHelper;
+use Modules\Theme\Helpers\ThemeHelpers;
 
 class Category extends Model
 {
@@ -26,7 +26,7 @@ class Category extends Model
     {
         return Attribute::make(
             get: fn( $value ) =>  $value ,
-            set: fn( $value ) =>  MiscHelper::slugRectifier( $value )
+            set: fn( $value ) =>  ThemeHelpers::slugRectifier( $value )
         );
     }
 

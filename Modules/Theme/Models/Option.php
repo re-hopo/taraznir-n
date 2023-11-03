@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 
-class Option extends Model  implements HasMedia
+class Option extends Model implements HasMedia
 {
     use CommonScopesTrait ,CommonModelMethodsTrait;
 
-    protected $appends = ['jalali_created_at' ,'images'];
+    protected $appends = ['jalali_created_at'];
 
     protected $fillable = [
         'title',
@@ -37,6 +37,7 @@ class Option extends Model  implements HasMedia
             'title' => strip_tags( $this->value ),
         ];
     }
+
 
 
 }

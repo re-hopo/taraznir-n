@@ -2,16 +2,15 @@
 
 namespace App\Trait;
 
-use Awcodes\Curator\Components\Forms\CuratorPicker;
-use Awcodes\Curator\Components\Tables\CuratorColumn;
 use Exception;
-use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -42,16 +41,6 @@ trait CommonFilamentResource
             ]);
     }
 
-
-    public static function formMedia(): Section
-    {
-        return Section::make()->schema([
-            CuratorPicker::make('تصویر شاخص')
-                ->relationship('featuredImage', 'id'),
-        ]);
-    }
-
-
     public static function formSummary(): Section
     {
         return
@@ -61,14 +50,41 @@ trait CommonFilamentResource
             ]);
     }
 
-    public static function formEditor(): Section
+    public static function formEditor($key = 'content'): Section
     {
         return
             Section::make()->schema([
-                RichEditor::make('content')
+                RichEditor::make($key)
                     ->label('محتوا')
             ]);
     }
+
+    public static function formTitle(): TextInput
+    {
+        return
+            TextInput::make('title')
+                ->label('عنوان')
+                ->required();
+    }
+
+
+    public static function formKey(): TextInput
+    {
+        return
+            TextInput::make('key')
+                ->label('کلید')
+                ->required();
+    }
+
+    public static function formToggleTextType(): Toggle
+    {
+        return
+            Toggle::make('type')
+                ->label('Save As HTML');
+    }
+
+
+
 
 
     public static function formStatusAndChosen(): Section
@@ -109,13 +125,14 @@ trait CommonFilamentResource
     {
         return
             Section::make()->schema([
-                FileUpload::make('attachment')
+                SpatieMediaLibraryFileUpload::make('attachment')
+                    ->multiple()
                     ->label('فایل ضمیمه')
             ]);
     }
 
 
-    public static function formMeta( array $options ): Section
+    public static function formMetaKeyOptions( array $options ): Section
     {
         return
             Section::make()->schema([
@@ -127,7 +144,6 @@ trait CommonFilamentResource
                             ->required(),
                         Textarea::make('value')
                             ->label('مقدار')
-                            ->required(),
                     ])
                     ->relationship('meta')
                     ->collapsible()
@@ -136,16 +152,27 @@ trait CommonFilamentResource
     }
 
 
-
-    public static function tableCover(): CuratorColumn
+    public static function formMetaTextAndAttachment(): Section
     {
         return
-            CuratorColumn::make('featuredImage')
-                ->label('تصویر شاخص' )
-                ->size(40 )
-                ->ring(2)
-                ->overlap(4);
+            Section::make()
+                ->schema([
+                    Repeater::make('meta')
+                        ->label('متا')
+                        ->schema([
+                            TextInput::make('key')
+                                ->required(),
+                            Textarea::make('value')
+                                ->label('مقدار'),
+                        ])
+                        ->relationship('meta')
+                        ->collapsible()
+                        ->columns()
+                        ->defaultItems(0),
+            ]);
     }
+
+
 
 
     public static function tableTitle(): TextColumn

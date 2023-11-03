@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'Page Title' }}</title>
+    @include('theme::layout.head')
 
-    @livewireStyles
-</head>
     <body>
-        {{ $slot }}
-        @livewireScripts
+        <div class="page-wrapper">
+            @livewire('theme::layout.header')
+            @livewire('theme::layout.sidebar')
+
+            {{ $slot }}
+
+            @livewire('theme::layout.footer')
+        </div>
+
+        @include('theme::layout.scroll-to-top')
+        @include('theme::layout.scripts')
     </body>
+
 </html>

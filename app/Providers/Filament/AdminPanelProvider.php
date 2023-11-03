@@ -20,6 +20,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Modules\Blog\Filament\BlogPlugin;
+use Modules\Theme\Filament\Resources\OptionPlugin;
+use RyanChandler\FilamentNavigation\FilamentNavigation;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -73,15 +75,9 @@ class AdminPanelProvider extends PanelProvider
 
             ->plugins([
                 new BlogPlugin(),
+                new OptionPlugin(),
                 FilamentSpatieRolesPermissionsPlugin::make(),
-                CuratorPlugin::make()
-                    ->label('Media')
-                    ->pluralLabel('Media')
-                    ->navigationIcon('heroicon-o-photo')
-                    ->navigationGroup('Content')
-                    ->navigationSort(3)
-                    ->navigationCountBadge(),
-
+                FilamentNavigation::make(),
             ]);
     }
 }

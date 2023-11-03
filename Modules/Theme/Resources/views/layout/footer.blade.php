@@ -93,8 +93,7 @@
                         isJsonString(social.value) && <li>
                             <a
                                 href={ JSON.parse(social.value).value}
-                                class={`fa ${JSON.parse(social.value).icon}`}
-                            />
+                                class={`fa ${JSON.parse(social.value).icon}`}></a>
                         </li>
                     )}
                 </ul>

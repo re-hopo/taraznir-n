@@ -7,7 +7,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Modules\Theme\Helpers\MiscHelper;
+use Modules\Theme\Helpers\ThemeHelpers;
 use Modules\Theme\Http\Controllers\SMSController;
 use Modules\User\Http\Requests\VerifyRegistrationCodeRequest;
 use Modules\User\Models\User;
@@ -87,7 +87,7 @@ class VerificationController extends Controller
 
     public static function signUpValidator( string $receptor ,int $code ): string
     {
-        if( !MiscHelper::mobileValidator( MiscHelper::numberConverter( $receptor ) )){
+        if( !ThemeHelpers::mobileValidator( ThemeHelpers::numberConverter( $receptor ) )){
             return 'mobile_number_incorrect';
         }
 
@@ -119,7 +119,7 @@ class VerificationController extends Controller
 
     public static function signInValidator( string $receptor ,int $code ): string
     {
-        if( !MiscHelper::mobileValidator( MiscHelper::numberConverter( $receptor ) )){
+        if( !ThemeHelpers::mobileValidator( ThemeHelpers::numberConverter( $receptor ) )){
             return 'mobile_number_incorrect';
         }
 

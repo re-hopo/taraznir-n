@@ -3,8 +3,6 @@
 namespace Modules\Blog\Filament;
 
 
-use Althinect\FilamentSpatieRolesPermissions\Resources\PermissionResource;
-use Althinect\FilamentSpatieRolesPermissions\Resources\RoleResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Modules\Blog\Filament\Resources\BlogResource;
