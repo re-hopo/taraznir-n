@@ -15,7 +15,7 @@ class StandardSection extends Component
             return
                 Standard::with(['category' ,'meta' ,'media'])
                     ->activeScope()
-                    ->orderBy('chosen')
+                    ->orderBy('chosen' ,'DESC')
                     ->limit(config('service::section_limit' ,12))
                     ->get();
         });

@@ -298,7 +298,6 @@
 	padding:8px 18px;
 	line-height:24px;
 	font-weight:500;
-	font-size:var(--font-15);
 	text-transform:capitalize;
 	color:var(--black-color);
 	transition:all 500ms ease;

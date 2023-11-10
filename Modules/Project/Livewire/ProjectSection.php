@@ -13,11 +13,14 @@ class ProjectSection extends Component
     {
 
         $items = Helpers::redisHandler( 'project_section_items' ,function (){
-            return Project::with(['category' ,'meta'])->get();
+            return Project::with(['category' ,'meta'])
+                ->get();
         });
 
         $cats = Helpers::redisHandler( 'project_section_cats' ,function (){
-            return Category::with(['project'])->where('model' ,'project')->get();
+            return Category::with(['project'])
+                ->where('model' ,'project')
+                ->get();
         });
 
         return view('project::project-section' ,[

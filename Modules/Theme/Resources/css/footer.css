@@ -336,7 +336,7 @@
 .main-footer .footer-bottom-nav li{
 	position:relative;
 	display:inline-block;
-	margin-left:var(--margin-left-30);
+	margin-left:13px;
 }
 
 .main-footer .footer-bottom-nav li a{

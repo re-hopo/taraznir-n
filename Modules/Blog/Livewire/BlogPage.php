@@ -2,12 +2,15 @@
 
 namespace Modules\Blog\Livewire;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Modules\Blog\Models\Blog;
 use Modules\Theme\Helpers\Helpers;
 
-class BlogSection extends Component
+class BlogPage extends Component
 {
+
+    #[Layout('theme::layout.app')]
     public function render()
     {
         $blogs =(object) Helpers::redisHandler( 'blog-section' ,function (){
@@ -19,7 +22,7 @@ class BlogSection extends Component
                     ->get();
         });
 
-        return view('blog::blog-section',[
+        return view('blog::blog-page',[
             'items' => $blogs
         ]);
     }

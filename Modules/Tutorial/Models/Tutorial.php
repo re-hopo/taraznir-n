@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Theme\Trait\CommonModelMethodsTrait;
 use Modules\Theme\Trait\CommonScopesTrait;
 use Modules\Tutorial\Database\factories\TutorialFactory;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
-class Tutorial extends Model
+class Tutorial extends Model implements HasMedia
 {
-    use CommonScopesTrait ,CommonModelMethodsTrait;
+    use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
     protected $appends = ['jalali_created_at' ,'images'];
 
@@ -18,8 +20,6 @@ class Tutorial extends Model
         'slug',
         'summary',
         'content',
-        'cover',
-        'thumbnail',
         'status',
         'chosen',
     ];

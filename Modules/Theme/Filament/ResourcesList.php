@@ -11,6 +11,7 @@ use Modules\Project\Filament\Resources\ProjectResource;
 use Modules\Standard\Filament\Resources\StandardResource;
 use Modules\Theme\Filament\Resources\CategoryResource;
 use Modules\Theme\Filament\Resources\OptionResource;
+use Modules\Tutorial\Filament\Resources\TutorialResource;
 
 
 class ResourcesList implements Plugin
@@ -30,6 +31,7 @@ class ResourcesList implements Plugin
                 StandardResource::class,
                 ProjectResource::class,
                 NewsResource::class,
+                TutorialResource::class,
             ])
             ->pages([
 //                Settings::class,

@@ -6,6 +6,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Modules\Theme\Helpers\Helpers;
 use Modules\Theme\Models\Option;
+use Modules\Tutorial\Models\Tutorial;
 use RyanChandler\FilamentNavigation\Models\Navigation;
 
 class Footer extends Component
@@ -29,9 +30,19 @@ class Footer extends Component
                     ->first();
         });
 
+        $tutorials = Helpers::redisHandler( 'footers_tutorials' ,function (){
+            return
+                Tutorial::with(['meta' ,'media' ,'category'])
+                    ->activeScope()
+                    ->orderBy('chosen' ,'DESC')
+                    ->limit(3)
+                    ->get();
+        });
+
         return view('theme::layout/footer',[
-            'menus'   => $menus,
-            'options' => $options,
+            'menus'     => $menus,
+            'options'   => $options,
+            'tutorials' => $tutorials,
         ]);
     }
 }

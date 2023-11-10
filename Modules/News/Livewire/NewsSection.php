@@ -13,7 +13,7 @@ class NewsSection extends Component
         $items = Helpers::redisHandler( 'news_section' ,function (){
             return News::with(['category' ,'meta'])
                 ->activeScope()
-                ->orderBy('chosen')
+                ->orderBy('chosen' ,'DESC')
                 ->limit(config('news::section_limit' ,3))
                 ->get();
         });

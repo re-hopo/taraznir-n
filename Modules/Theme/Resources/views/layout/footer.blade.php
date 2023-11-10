@@ -57,24 +57,25 @@
                 <div class="big-column col-lg-6 col-md-12 col-sm-12">
                     <div class="row clearfix">
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h6>صفحات اصلی</h6>
-                                <ul class="page-list">
-                                    @if( !empty( $menus->footer_second_menu->items ) )
-                                        @foreach($menus->footer_second_menu->items as $item)
-                                            <li>
-                                                @if( !empty( Modules\Theme\Helpers\Helpers::indexChecker( $item ,'data' )) )
-                                                    <a
-                                                        href="{{$item['data']['url'] }}"
-                                                        target="{{$item['data']['target'] }}"
-                                                    >
-                                                        {{ $item['label']}}
+                            <div class="footer-widget links-widget sidebar-widget-two post-widget">
+                                <h6>آموزش تصویری</h6>
+                                <div class="widget-content">
+                                    @if($tutorials)
+                                        @foreach($tutorials as $tutorial)
+                                            <div class="post">
+                                                <div class="thumb">
+                                                    <div class="post-number">0{{$loop->iteration}}</div>
+                                                    <a href="service/{{$tutorial->slug}}">
+                                                        <img src="{{$tutorial->images['thumbnail'] ?? ''}}" alt="{{$tutorial->title}}">
                                                     </a>
-                                                @endif
-                                            </li>
+                                                </div>
+                                                <h6>
+                                                    <a href="service/{{$tutorial->slug}}">{{$tutorial->title}}</a>
+                                                </h6>
+                                            </div>
                                         @endforeach
                                     @endif
-                                </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
@@ -139,7 +140,7 @@
                 <ul class="social-box">
                     @foreach(Helpers::getMetaValuesByLikeKeys( $options ,'social_') as $key => $link)
                         <a
-                            style="font-size: 18px; margin: 0 5px;"
+                            style="font-size: 18px; margin: 0 5px;color: #000;"
                             href="{{$link}}"
                             class="fa {{last(explode('_' ,$key))}}"
                         >

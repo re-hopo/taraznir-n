@@ -24,7 +24,6 @@ return new class extends Migration
             $table->bigInteger('featured_image_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->fullText(['title' ,'summary' ,'content']);
         });
     }
 
