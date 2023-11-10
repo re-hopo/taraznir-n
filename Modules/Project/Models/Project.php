@@ -2,10 +2,10 @@
 
 namespace Modules\Project\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Project\Database\factories\ProjectFactory;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 use Spatie\MediaLibrary\HasMedia;
 
 class Project extends Model implements HasMedia

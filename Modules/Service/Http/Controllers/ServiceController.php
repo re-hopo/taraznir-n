@@ -3,9 +3,9 @@
 namespace Modules\Service\Http\Controllers;
 
 
-use App\Trait\CommonApiTrait;
 use Illuminate\Routing\Controller;
 use Modules\Service\Models\Service;
+use Modules\Theme\Trait\CommonApiTrait;
 
 class ServiceController extends Controller
 {

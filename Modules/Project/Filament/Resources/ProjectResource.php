@@ -2,167 +2,86 @@
 
 namespace Modules\Project\Filament\Resources;
 
-use Filament\Forms\Components\Card;
+use Exception;
 use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use Icetalker\FilamentTableRepeater\Forms\Components\TableRepeater;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Project\Filament\Resources\ProjectResource\Pages;
-use Modules\Project\Filament\Resources\ProjectResource\RelationManagers;
+use Modules\Project\Filament\Resources\ProjectResource\Pages\CreateProject;
+use Modules\Project\Filament\Resources\ProjectResource\Pages\EditProject;
+use Modules\Project\Filament\Resources\ProjectResource\Pages\ListProjects;
 use Modules\Project\Models\Project;
-use Modules\Theme\Models\Category;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
+use Modules\Theme\Trait\CommonFilamentResource;
 
 class ProjectResource extends Resource
 {
+    use CommonFilamentResource;
+
     protected static ?string $model = Project::class;
     protected static ?string $label = '  پروژه ها  ';
     protected static ?string $navigationIcon = 'heroicon-o-folder-open';
     protected static ?string $navigationGroup = 'پست ها';
     protected static ?int $navigationSort = 2;
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
 
-
     public static function form(Form $form): Form
     {
         return $form
-
             ->schema([
                 Grid::make()->columns(12) ->schema([
                     Grid::make()->schema([
-
-                        Card::make()->schema([
-                             TextInput::make('title')
-                                ->label('عنون')
-                                ->required(),
-                             TextInput::make('slug')
-                                ->label('نامک')
-                                ->required() ,
+                        self::formTitleAndSlug(),
+                        self::formCover(),
+                        self::formSummary(),
+                        self::formEditor(),
+                        self::formMetaKeyOptions([
+                            'client'     => 'مشتری',
+                            'year'       => 'سال اجر',
+                            'location'   => 'محل اجرا',
+                            'designer'   => 'طراح',
+                            'presenter'  => 'مجری',
+                            'supervisor' => 'ناظر'
                         ]),
-
-                        Card::make()->schema([
-                            TinyEditor::make('content')
-                                ->showMenuBar()
-                                ->label('محتوا') ,
-
-                            SpatieMediaLibraryFileUpload::make('cover')
-                                ->multiple()
-                                ->enableReordering()
-                                ->placeholder('بارگذاری تصویر بند انگشتی')
-                                ->label(' تصویر بند انگشتی ')
-                                ->imagePreviewHeight(100),
-
-                            Textarea::make('summary')
-                                ->label('خلاصه')
-                        ]),
-
-                        Card::make()->schema([
-                            TableRepeater::make('meta')
-                                ->label('متا')
-                                ->relationship('meta')
-                                ->schema([
-                                    Select::make('key')
-                                        ->label('کلید')
-                                        ->required()
-                                        ->options([
-                                            'client'     => 'مشتری',
-                                            'year'       => 'سال اجر',
-                                            'location'   => 'محل اجرا',
-                                            'designer'   => 'طراح',
-                                            'presenter'  => 'مجری',
-                                            'supervisor' => 'ناظر'
-                                        ]),
-                                    TextInput::make('value')
-                                        ->label('مقدار')
-                                        ->required(),
-                                ])
-                                ->collapsible()
-                                ->defaultItems(0),
-                        ]),
-
                     ])->columnSpan(9 ),
-
-
                     Grid::make()->schema([
-                        Card::make()->schema([
-                            Select::make('status')
-                                ->options([
-                                    'draft' => 'پیش نویس',
-                                    'publish' => 'منتشر شده'
-                                ])
-                                ->default('publish')
-                                ->columnSpan(6)
-                                ->label('وضعیت  ') ,
-                            TextInput::make('chosen' )
-                                ->default(0)
-                                ->columnSpan(6 )
-                                ->label('انتخاب شده '),
-                        ]),
-                        Card::make()->schema([
-                            Select::make('category')
-                                ->relationship( 'category' ,'slug' ,
-                                    fn () => Category::where('model' ,'=' ,'project' )
-                                )
-                                ->multiple()
-                                ->label('دسته بندی')
-                        ]),
-
+                        self::formStatusAndChosen(),
+                        self::formCategory('project'),
+                        self::formAttachment(),
                     ])->columnSpan(3 ),
                 ]),
             ]);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->url(fn ($record) => env('APP_URL' ).'/project/'.$record->slug ,true )
-                    ->formatStateUsing(fn (string $state): string => __("{$state} #") )
-                    ->label('شناسه') ,
-
-                SpatieMediaLibraryImageColumn::make('cover')
-                    ->label('تصویر') ,
-
-                Tables\Columns\TextColumn::make('title')
-                    ->sortable()
-                    ->label('عنوان') ,
-                Tables\Columns\TextColumn::make('status')
-                    ->enum([
-                        'draft' => 'پیش نویس',
-                        'publish' => 'منتشر شده'
-                    ])
-                    ->label('وضعیت'),
+                self::tableID('project'),
+                self::tableCategory(),
+                self::tableCover(),
+                self::tableTitle(),
+                self::tableStatus(),
             ])
             ->defaultSort('id')
-
-            ->filters([
-                Tables\Filters\TrashedFilter::make(),
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-                Tables\Actions\RestoreBulkAction::make(),
-                Tables\Actions\ForceDeleteBulkAction::make(),
-            ]);
+            ->filters(
+                self::filters()
+            )
+            ->actions(
+                self::actions()
+            )
+            ->bulkActions(
+                self::bulkActions()
+            );
     }
+
 
 
     public static function getRelations(): array
@@ -175,9 +94,9 @@ class ProjectResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListProjects::route('/'),
-            'create' => Pages\CreateProject::route('/create'),
-            'edit' => Pages\EditProject::route('/{record}/edit'),
+            'index'  => ListProjects::route('/'),
+            'create' => CreateProject::route('/create'),
+            'edit'   => EditProject::route('/{record}/edit'),
         ];
     }
 

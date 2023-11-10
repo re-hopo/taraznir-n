@@ -4,19 +4,30 @@ namespace Modules\Theme\Livewire\Layout;
 
 use Illuminate\View\View;
 use Livewire\Component;
-use Modules\Theme\Helpers\ThemeHelpers;
-use RyanChandler\FilamentNavigation\Facades\FilamentNavigation;
+use Modules\Theme\Helpers\Helpers;
+use Modules\Theme\Models\Option;
+use RyanChandler\FilamentNavigation\Models\Navigation;
 
 class Header extends Component
 {
 
-
     public function render(): View
     {
-        $headers = ThemeHelpers::redisHandler( 'headers' ,function (){
-            return FilamentNavigation::get('main-menu');
+        $menu = Helpers::redisHandler( 'headers_menu' ,function (){
+            return
+                Navigation::fromHandle('main-menu');
         });
 
-        return view('theme::layout/header');
+        $options = Helpers::redisHandler( 'theme_options' ,function (){
+            return
+                Option::where('key' ,'theme_options')
+                ->with(['meta' ,'media'])
+                ->first();
+        });
+
+        return view('theme::layout/header',[
+            'menu'    => $menu,
+            'options' => $options,
+        ]);
     }
 }

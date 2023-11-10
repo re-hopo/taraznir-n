@@ -1,3 +1,4 @@
+@php use \Modules\Theme\Helpers\Helpers; @endphp
 <header class="main-header header-style-two">
 
     <div class="header-lower">
@@ -23,7 +24,6 @@
                         </a>
                     </div>
                 </div>
-
 
                 <div class="middle-box">
                     <div class="upper-box">
@@ -53,19 +53,19 @@
                                         <span class="icon">
                                             <span class="flaticon-time"></span>
                                         </span>
-                                        {(findMetaValueByKey(options.theme_settings.meta ,'work_time'))}
+                                        {{Helpers::getMetaValueByKey( $options ,'work_time')}}
                                     </li>
                                     <li>
                                         <span class="icon">
                                             <span class="flaticon-location"></span>
                                         </span>
-                                        {(findMetaValueByKey(options.theme_settings.meta ,'header_address'))}
+                                        {{Helpers::getMetaValueByKey( $options ,'header_address')}}
                                     </li>
                                     <li>
                                         <span class="icon">
                                             <span class="flaticon-phone-call"></span>
                                         </span>
-                                        {(findMetaValueByKey(options.theme_settings.meta ,'header_phone_number'))}
+                                        {{Helpers::getMetaValueByKey( $options ,'header_phone_number')}}
                                     </li>
                                 </ul>
                             </div>
@@ -121,39 +121,67 @@
                                 </button>
                             </div>
                             <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+
                                 <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="#">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Homepage One</a></li>
-                                            <li><a href="index-2.html">Homepage Two</a></li>
-                                            <li><a href="index-3.html">Homepage Three</a></li>
-                                            <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header Style One</a></li>
-                                                    <li><a href="index-2.html">Header Style Two</a></li>
-                                                    <li><a href="index-3.html">Header Style Three</a></li>
-                                                </ul>
+                                    @if( !empty( $menu->items ) )
+                                        @foreach($menu->items as $item)
+                                            @php
+                                                $menu_name = ltrim( $item['data']['url'] ,'/').'-menu';
+                                            @endphp
+                                            <li
+                                                class="{{!empty( $item['children'] ) ? 'dropdown' :''}}
+                                                {{Helpers::returnValueIsTrue( $item ,'children' ,'menu-item-has-children')}}
+                                                {{Helpers::checkCurrentPage( $item['data']['url'] )}} {{$menu_name}}"
+                                            >
+                                                @if( !empty( Helpers::indexChecker( $item ,'data' )) )
+                                                    <a
+                                                        href="{{$item['data']['url'] }}"
+                                                        target="{{$item['data']['target'] }}"
+                                                    >
+                                                        {{ $item['label']}}
+                                                    </a>
+
+                                                    @if( !empty( $item['children'] ) )
+                                                        <ul>
+                                                            @foreach( $item['children'] as $child_1 )
+                                                                <li>
+                                                                    @if( !empty(Helpers::indexChecker( $child_1 ,'data' )) )
+                                                                        <a
+                                                                            href="{{ $child_1['data']['url'] }}"
+                                                                            target="{{ $child_1['data']['target'] }}"
+                                                                        >
+                                                                            {{ $child_1['label'] }}
+                                                                        </a>
+
+                                                                        @if( !empty( $child_1['children'] ) )
+                                                                            <ul>
+                                                                                @foreach(  $child_1['children'] as $child_2 )
+                                                                                    <li>
+                                                                                        @if( !empty(Helpers::indexChecker( $child_2 ,'data' )) )
+                                                                                            <a
+                                                                                                href="{{ $child_2['data']['url'] }}"
+                                                                                                target="{{ $child_2['data']['target'] }}"
+                                                                                            >
+                                                                                                {{ $child_2['label'] }}
+                                                                                            </a>
+                                                                                        @endif
+                                                                                    </li>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        @endif
+                                                                    @endif
+
+                                                                </li>
+                                                            @endforeach
+
+                                                        </ul>
+                                                    @endif
+
+                                                @endif
                                             </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li class="dropdown"><a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Our Products</a></li>
-                                            <li><a href="shop-detail.html">Product Single</a></li>
-                                            <li><a href="cart.html">Shoping Cart</a></li>
-                                            <li><a href="checkout.html">CheckOut</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Our Blog</a></li>
-                                            <li><a href="blog-detail.html">Blog Single</a></li>
-                                            <li><a href="not-found.html">Not Found</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                        @endforeach
+                                    @endif
+
                                 </ul>
                             </div>
                         </nav>

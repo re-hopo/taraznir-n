@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
-use Modules\Theme\Helpers\ThemeHelpers;
+use Modules\Theme\Helpers\Helpers;
 use Modules\Theme\Http\Controllers\EmailController;
 use Modules\Theme\Http\Controllers\SMSController;
 use Modules\User\Http\Requests\SendRegistrationCodeRequest;
@@ -81,7 +81,7 @@ class AuthController extends Controller
 
     public static function signUpValidator( string $receptor ,int $code ,$type ): string
     {
-        if( $type === 'sign-up-by-sms' && !ThemeHelpers::mobileValidator( ThemeHelpers::numberConverter( $receptor ) )){
+        if( $type === 'sign-up-by-sms' && !Helpers::mobileValidator( Helpers::numberConverter( $receptor ) )){
             return 'mobile_number_incorrect';
         }
 
@@ -95,7 +95,7 @@ class AuthController extends Controller
             return 'exist_user';
         }
 
-        if( ThemeHelpers::indexChecker( $last ,'sent_count' ,0 ) >= config('user::config.count_on_day' ,20 ) ){
+        if( Helpers::indexChecker( $last ,'sent_count' ,0 ) >= config('user::config.count_on_day' ,20 ) ){
             return 'maximum_send_count';
         }
 
@@ -164,7 +164,7 @@ class AuthController extends Controller
     }
     public static function signInValidator( string $receptor ,int $code ): string
     {
-        if( !ThemeHelpers::mobileValidator( ThemeHelpers::numberConverter( $receptor ) )){
+        if( !Helpers::mobileValidator( Helpers::numberConverter( $receptor ) )){
             return 'mobile_number_incorrect';
         }
 
@@ -178,7 +178,7 @@ class AuthController extends Controller
             return 'not_exist_user';
         }
 
-        if( ThemeHelpers::indexChecker( $last ,'sent_count' ,0 ) >= config('user::config.count_on_day' ,20 ) ){
+        if( Helpers::indexChecker( $last ,'sent_count' ,0 ) >= config('user::config.count_on_day' ,20 ) ){
             return 'maximum_send_count';
         }
 

@@ -2,15 +2,16 @@
 
 namespace Modules\Standard\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Standard\Database\factories\StandardFactory;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
 class Standard extends Model implements HasMedia
 {
-    use CommonScopesTrait ,CommonModelMethodsTrait;
+    use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
     protected $appends = ['jalali_created_at' ,'images'];
 

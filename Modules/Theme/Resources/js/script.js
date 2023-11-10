@@ -345,9 +345,10 @@
             loop:true,
             margin:0,
             nav:true,
+            rtl:true,
             //autoHeight: true,
-            smartSpeed: 500,
-            autoplay: 6000,
+            // smartSpeed: 500,
+            // autoplay: 6000,
             navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
             responsive:{
                 0:{
@@ -582,8 +583,8 @@
     if ($('.sponsors-carousel').length) {
         $('.sponsors-carousel').owlCarousel({
             loop:true,
-            margin:30,
-            nav:true,
+            margin:60,
+            nav:false,
             smartSpeed: 500,
             autoplay: 4000,
             navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],

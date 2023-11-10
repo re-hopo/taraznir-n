@@ -2,95 +2,76 @@
 
 namespace Modules\Theme\Filament\Resources;
 
-use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-use Modules\Misc\Filament\Resources\CategoryResource\Pages;
-use Modules\Misc\Filament\Resources\CategoryResource\RelationManagers;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use Modules\Theme\Filament\Resources\CategoryResource\Pages\CreateCategory;
+use Modules\Theme\Filament\Resources\CategoryResource\Pages\EditCategory;
+use Modules\Theme\Filament\Resources\CategoryResource\Pages\ListCategories;
 use Modules\Theme\Models\Category;
+use Modules\Theme\Trait\CommonFilamentResource;
 
 class CategoryResource extends Resource
 {
+    use CommonFilamentResource;
+
     protected static ?string $model = Category::class;
     protected static ?string $label = '  دسته بندی ';
-    protected static ?string $navigationIcon = 'heroicon-o-color-swatch';
+    protected static ?string $navigationIcon = 'heroicon-o-swatch';
     protected static ?string $navigationGroup = 'دسته بندی';
     protected static ?int $navigationSort = 3;
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->label('عنون')
-                    ->required(),
-                Forms\Components\TextInput::make('slug')
-                    ->label('نامک')
-                    ->required() ,
-                Forms\Components\Select::make('model')
-                    ->label('نوع پست')
-                    ->options(
-                        [
-                            'blog'     => 'بلاگ',
-                            'product'  => 'محصول',
-                            'service'  => 'خدمات',
-                            'project'  => 'پروژه',
-                            'standard' => 'استاندارد',
-                            'category' => 'کاتالوگ',
-                            'tutorial' => 'آموزش',
-                            'news'     => 'اخبار',
-                        ]
-                    )
-                    ->required(),
-                Forms\Components\Textarea::make('description')
-                    ->label('توضیحات') ,
-                Forms\Components\FileUpload::make('cover')
-                    ->imagePreviewHeight('500')
-                    ->panelAspectRatio('9:1')
-                    ->label('کاور ')
-                    ->hint('تعیین آیکون'),
-            ]);
-    }
-
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                SpatieMediaLibraryImageColumn::make('cover')
-                    ->label('تصویر') ,
-
-                Tables\Columns\TextColumn::make('title')
-                    ->label('عنون')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('slug')
-                    ->label('نامک') ,
-
-                Tables\Columns\TextColumn::make('model')
-                    ->enum([
+                self::formTitle(),
+                self::formSlug(),
+                self::formSelectBox(
+                    [
                         'blog'     => 'بلاگ',
                         'product'  => 'محصول',
                         'service'  => 'خدمات',
                         'project'  => 'پروژه',
-                        'resource' => 'منابع',
-                    ])
+                        'standard' => 'استاندارد',
+                        'category' => 'کاتالوگ',
+                        'tutorial' => 'آموزش',
+                        'news'     => 'اخبار',
+                        'option'   => 'گزینه‌ها',
+                    ],
+                    'model' ,'نوع پست'
+                ),
+                self::formDescription(),
+                self::formCover()
+            ]);
+    }
 
+    /**
+     * @throws \Exception
+     */
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                self::tableCover(),
+                self::tableTitle(),
+                self::tableSlug(),
+                TextColumn::make('model')
             ])
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ->actions(
+                self::actions()
+            )
+            ->bulkActions(
+                self::bulkActions()
+            );
     }
 
     public static function getRelations(): array
@@ -103,9 +84,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => \Modules\Theme\Filament\Resources\CategoryResource\Pages\ListCategories::route('/'),
-            'create' => \Modules\Theme\Filament\Resources\CategoryResource\Pages\CreateCategory::route('/create'),
-            'edit' => \Modules\Theme\Filament\Resources\CategoryResource\Pages\EditCategory::route('/{record}/edit'),
+            'index'  => ListCategories::route('/'),
+            'create' => CreateCategory::route('/create'),
+            'edit'   => EditCategory::route('/{record}/edit'),
         ];
     }
 }

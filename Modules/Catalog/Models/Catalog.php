@@ -2,10 +2,10 @@
 
 namespace Modules\Catalog\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Catalog\Database\factories\CatalogFactory;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 
 class Catalog extends Model
 {

@@ -4,7 +4,6 @@ namespace Modules\Theme\Filament\Resources;
 
 
 
-use App\Trait\CommonFilamentResource;
 use Exception;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
@@ -18,6 +17,7 @@ use Modules\Theme\Filament\Resources\OptionResource\Pages\CreateOption;
 use Modules\Theme\Filament\Resources\OptionResource\Pages\EditOption;
 use Modules\Theme\Filament\Resources\OptionResource\Pages\ListOptions;
 use Modules\Theme\Models\Option;
+use Modules\Theme\Trait\CommonFilamentResource;
 
 class OptionResource extends Resource
 {
@@ -43,8 +43,6 @@ class OptionResource extends Resource
 
     public static function form(Form $form): Form
     {
-
-
         return $form
             ->schema([
                 Grid::make()->columns(12)->schema([
@@ -57,7 +55,8 @@ class OptionResource extends Resource
                     ])->columnSpan(9),
 
                     Grid::make()->schema([
-                        self::formAttachment(),
+                        self::formCover(),
+                        self::formCategory('option'),
                     ])->columnSpan(3),
                 ]),
             ]);

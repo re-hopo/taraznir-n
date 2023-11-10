@@ -2,10 +2,10 @@
 
 namespace Modules\Service\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Service\Database\factories\ServiceFactory;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 use Spatie\MediaLibrary\HasMedia;
 
 class Service extends Model implements HasMedia

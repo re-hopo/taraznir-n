@@ -2,9 +2,9 @@
 
 namespace Modules\Standard\Http\Controllers;
 
-use App\Trait\CommonApiTrait;
 use Illuminate\Routing\Controller;
 use Modules\Standard\Models\Standard;
+use Modules\Theme\Trait\CommonApiTrait;
 
 class StandardController extends Controller
 {

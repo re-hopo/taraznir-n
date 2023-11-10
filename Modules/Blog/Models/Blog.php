@@ -2,17 +2,19 @@
 
 namespace Modules\Blog\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Blog\Database\factories\BlogFactory;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Permission\Traits\HasRoles;
 
-class Blog extends Model
+class Blog extends Model implements HasMedia
 {
+
     use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
-    protected $appends = ['jalali_created_at' ];
+    protected $appends = ['jalali_created_at' ,'images'];
 
     protected $fillable = [
         'title',

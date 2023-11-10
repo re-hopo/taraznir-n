@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('cover')->nullable();
             $table->string('model')->default('blog');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -2,9 +2,9 @@
 
 namespace Modules\Blog\Http\Controllers;
 
-use App\Trait\CommonApiTrait;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Models\Blog;
+use Modules\Theme\Trait\CommonApiTrait;
 
 class BlogController extends Controller
 {

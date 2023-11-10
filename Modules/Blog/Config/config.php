@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'name' => 'Blog'
+    'name' => 'Blog',
+    'section_limit' => 10
 ];

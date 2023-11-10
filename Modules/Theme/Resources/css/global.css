@@ -1015,7 +1015,7 @@ img{
 	transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
 	-webkit-transition: all 0.3s ease;
-	margin-right:var(--margin-left-15);
+	left:var(--margin-left-5);
 }
 
 /* Btn Style Two */

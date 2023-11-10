@@ -2,9 +2,9 @@
 
 namespace Modules\Project\Http\Controllers;
 
-use App\Trait\CommonApiTrait;
 use Illuminate\Routing\Controller;
 use Modules\Project\Models\Project;
+use Modules\Theme\Trait\CommonApiTrait;
 
 class ProjectController extends Controller
 {

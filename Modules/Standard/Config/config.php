@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'name' => 'Standard'
+    'name' => 'Standard',
+    'section_limit' => 12
 ];

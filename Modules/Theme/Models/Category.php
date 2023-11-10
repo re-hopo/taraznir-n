@@ -3,16 +3,18 @@
 namespace Modules\Theme\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Project\Models\Project;
 use Modules\Standard\Models\Standard;
-use Modules\Theme\Helpers\ThemeHelpers;
+use Modules\Theme\Helpers\Helpers;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
+use Spatie\MediaLibrary\HasMedia;
 
-class Category extends Model
+class Category extends Model implements HasMedia
 {
-    use HasFactory;
+    use CommonScopesTrait ,CommonModelMethodsTrait;
 
     protected $fillable = [
         'title',
@@ -26,7 +28,7 @@ class Category extends Model
     {
         return Attribute::make(
             get: fn( $value ) =>  $value ,
-            set: fn( $value ) =>  ThemeHelpers::slugRectifier( $value )
+            set: fn( $value ) =>  Helpers::slugRectifier( $value )
         );
     }
 

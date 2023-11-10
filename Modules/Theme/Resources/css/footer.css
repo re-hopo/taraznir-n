@@ -1,5 +1,5 @@
 
-/*** 
+/***
 
 ====================================================================
 	Main Footer
@@ -69,7 +69,7 @@
 }
 
 .main-footer .widgets-section .text{
-	max-width:380px;
+	max-width:300px;
 	line-height:28.8px;
 	color:var(--black-color);
 	margin-top:var(--margin-top-15);
@@ -143,15 +143,15 @@
 	position:relative;
 	font-size:var(--font-16);
 	color:var(--color-eightteen);
-	padding-left:var(--padding-left-20);
+	padding-right:var(--padding-left-20);
 	font-family:var(--font-family-Azarmehr);
 }
 
 .main-footer .page-list-two li a:before{
 	position:absolute;
 	content:'';
-	left:0px;
-	top:8px;
+	right:0;
+	top:10px;
 	width:8px;
 	height:8px;
 	opacity:0.20;

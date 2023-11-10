@@ -2,7 +2,6 @@
 
 namespace Modules\Service\Filament\Resources;
 
-use App\Trait\CommonFilamentResource;
 use Filament\Forms\Components\Grid;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -11,6 +10,7 @@ use Modules\Service\Filament\Resources\ServiceResource\Pages\CreateService;
 use Modules\Service\Filament\Resources\ServiceResource\Pages\EditService;
 use Modules\Service\Filament\Resources\ServiceResource\Pages\ListServices;
 use Modules\Service\Models\Service;
+use Modules\Theme\Trait\CommonFilamentResource;
 
 
 class ServiceResource extends Resource
@@ -47,7 +47,7 @@ class ServiceResource extends Resource
                     Grid::make()->schema([
                         self::formStatusAndChosen(),
                         self::formCategory('service'),
-                        self::formAttachment(),
+                        self::formCover(),
                     ])->columnSpan(3 ),
                 ]),
             ]);

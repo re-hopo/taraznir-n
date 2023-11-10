@@ -3,7 +3,6 @@
 namespace Modules\Blog\Filament\Resources;
 
 
-use App\Trait\CommonFilamentResource;
 use Exception;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
@@ -15,6 +14,7 @@ use Modules\Blog\Filament\Resources\BlogResource\Pages\CreateBlog;
 use Modules\Blog\Filament\Resources\BlogResource\Pages\EditBlog;
 use Modules\Blog\Filament\Resources\BlogResource\Pages\ListBlogs;
 use Modules\Blog\Models\Blog;
+use Modules\Theme\Trait\CommonFilamentResource;
 
 class BlogResource extends Resource
 {
@@ -39,7 +39,7 @@ class BlogResource extends Resource
                 Grid::make()->columns(12) ->schema([
                     Grid::make()->schema([
                         self::formTitleAndSlug(),
-                        self::formMedia(),
+                        self::formCover(),
                         self::formSummary(),
                         self::formEditor(),
                         self::formMetaKeyOptions([
@@ -51,7 +51,6 @@ class BlogResource extends Resource
                     Grid::make()->schema([
                         self::formStatusAndChosen(),
                         self::formCategory('blog'),
-                        self::formAttachment(),
                     ])->columnSpan(3 ),
                 ]),
             ]);
@@ -91,9 +90,9 @@ class BlogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListBlogs::route('/'),
+            'index'  => ListBlogs::route('/'),
             'create' => CreateBlog::route('/create'),
-            'edit' => EditBlog::route('/{record}/edit'),
+            'edit'   => EditBlog::route('/{record}/edit'),
         ];
     }
 

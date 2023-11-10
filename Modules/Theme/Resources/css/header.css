@@ -815,10 +815,6 @@
 	margin-right:var(--margin-right-20);
 }
 
-.main-header.header-style-two .main-menu .navigation > li:last-child {
-	margin-right: 0;
-}
-
 .main-header.header-style-two .main-menu .navigation > li > a{
 	padding:21px 0;
 }

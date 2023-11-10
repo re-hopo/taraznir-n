@@ -2,9 +2,9 @@
 
 namespace Modules\Catalog\Http\Controllers;
 
-use App\Trait\CommonApiTrait;
 use Illuminate\Routing\Controller;
 use Modules\Catalog\Models\Catalog;
+use Modules\Theme\Trait\CommonApiTrait;
 
 class CatalogController extends Controller
 {

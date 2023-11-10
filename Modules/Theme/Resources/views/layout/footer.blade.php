@@ -1,3 +1,4 @@
+@php use \Modules\Theme\Helpers\Helpers; @endphp
 <footer class="main-footer style-two" dir="rtl">
     <div class="auto-container">
         <div class="widgets-section">
@@ -12,7 +13,7 @@
                                     </a>
                                 </div>
                                 <div class="text">
-                                    {options.theme_settings.value}
+                                    {!! $options?->value !!}
                                 </div>
                             </div>
                             <br/>
@@ -33,7 +34,22 @@
                         <div class="footer-column col-lg-5 col-md-6 col-sm-12">
                             <div class="footer-widget links-widget">
                                 <h6>خدمات اصلی</h6>
-                                {menuCreator(options ,'first_footer_menu' ,'page-list')}
+                                <ul class="page-list-two">
+                                    @if( !empty( $menus->footer_first_menu->items ) )
+                                        @foreach($menus->footer_first_menu->items as $item)
+                                            <li>
+                                                @if( !empty( Modules\Theme\Helpers\Helpers::indexChecker( $item ,'data' )) )
+                                                    <a
+                                                        href="{{$item['data']['url'] }}"
+                                                        target="{{$item['data']['target'] }}"
+                                                    >
+                                                        {{ $item['label']}}
+                                                    </a>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -43,7 +59,22 @@
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
                             <div class="footer-widget links-widget">
                                 <h6>صفحات اصلی</h6>
-                                {menuCreator(options ,'second_footer_menu' ,'page-list')}
+                                <ul class="page-list">
+                                    @if( !empty( $menus->footer_second_menu->items ) )
+                                        @foreach($menus->footer_second_menu->items as $item)
+                                            <li>
+                                                @if( !empty( Modules\Theme\Helpers\Helpers::indexChecker( $item ,'data' )) )
+                                                    <a
+                                                        href="{{$item['data']['url'] }}"
+                                                        target="{{$item['data']['target'] }}"
+                                                    >
+                                                        {{ $item['label']}}
+                                                    </a>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                         <div class="footer-column col-lg-6 col-md-6 col-sm-12">
@@ -54,7 +85,7 @@
                                         <div class="inner">
                                             <span class="fa fa-map-marker"></span>
                                             <span class="call-text">
-                                                {findMetaValueByKey(options.theme_settings.meta ,'footer_address')}
+                                                {{Helpers::getMetaValueByKey( $options ,'footer_address')}}
                                             </span>
                                         </div>
                                     </li>
@@ -62,9 +93,9 @@
                                         <div class="inner">
                                             <span class="fa fa-phone"></span>
                                             <div>
-                                                {filterMetaByKey(options.theme_settings.meta ,'footer_phone').map( (phone:MetaType ,key:number) =>
-                                                    <p key={key}> {phone.value} </p>
-                                                )}
+                                                @foreach(Helpers::getMetaValuesByKey( $options ,'footer_phone') as $phone)
+                                                    <p> {{$phone}} </p>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </li>
@@ -72,7 +103,7 @@
                                         <div class="inner">
                                             <span style="font-size: 15px" class="fa fa-envelope"></span>
                                             <span class="call-text">
-                                                {findMetaValueByKey(options.theme_settings.meta ,'info_email')}
+                                                 {{Helpers::getMetaValueByKey( $options ,'info_email')}}
                                             </span>
                                         </div>
                                     </li>
@@ -85,19 +116,40 @@
         </div>
         <div class="footer-bottom">
             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <div class="copyright">©
-                     تمام حقوق برای <span> Taraznir</span> محفوظ است
-                </div>
-                <ul class="social-box">
-                    {searchMetaByKeyword(options.theme_settings.meta ,'social_').map( (social:MetaType ,key:number) =>
-                        isJsonString(social.value) && <li>
-                            <a
-                                href={ JSON.parse(social.value).value}
-                                class={`fa ${JSON.parse(social.value).icon}`}></a>
-                        </li>
-                    )}
+
+
+
+                <ul class="footer-bottom-nav">
+                    @if( !empty( $menus->bottom_menu->items ) )
+                        @foreach($menus->bottom_menu->items as $item)
+                            <li>
+                                @if( !empty( Modules\Theme\Helpers\Helpers::indexChecker( $item ,'data' )) )
+                                    <a
+                                        href="{{$item['data']['url'] }}"
+                                        target="{{$item['data']['target'] }}"
+                                    >
+                                        {{ $item['label']}}
+                                    </a>
+                                @endif
+                            </li>
+                        @endforeach
+                    @endif
                 </ul>
-                {menuCreator(options ,'third_footer_menu' ,'footer-bottom-nav')}
+
+                <ul class="social-box">
+                    @foreach(Helpers::getMetaValuesByLikeKeys( $options ,'social_') as $key => $link)
+                        <a
+                            style="font-size: 18px; margin: 0 5px;"
+                            href="{{$link}}"
+                            class="fa {{last(explode('_' ,$key))}}"
+                        >
+                        </a>
+                    @endforeach
+                </ul>
+
+                <div class="copyright">©
+                    تمام حقوق برای <span> Taraznir</span> محفوظ است
+                </div>
             </div>
         </div>
     </div>

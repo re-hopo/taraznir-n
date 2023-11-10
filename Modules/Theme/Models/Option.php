@@ -3,17 +3,18 @@
 namespace Modules\Theme\Models;
 
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
 class Option extends Model implements HasMedia
 {
-    use CommonScopesTrait ,CommonModelMethodsTrait;
+    use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
-    protected $appends = ['jalali_created_at'];
+    protected $appends = ['jalali_created_at' ,'images'];
 
     protected $fillable = [
         'title',

@@ -3,8 +3,6 @@
 namespace App\Providers\Filament;
 
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
-use Althinect\FilamentSpatieRolesPermissions\Middleware\SyncSpatiePermissionsWithFilamentTenants;
-use Awcodes\Curator\CuratorPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -19,8 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Modules\Blog\Filament\BlogPlugin;
-use Modules\Theme\Filament\Resources\OptionPlugin;
+use Modules\Theme\Filament\ResourcesList;
 use RyanChandler\FilamentNavigation\FilamentNavigation;
 
 class AdminPanelProvider extends PanelProvider
@@ -74,8 +71,7 @@ class AdminPanelProvider extends PanelProvider
             ])
 
             ->plugins([
-                new BlogPlugin(),
-                new OptionPlugin(),
+                new ResourcesList(),
                 FilamentSpatieRolesPermissionsPlugin::make(),
                 FilamentNavigation::make(),
             ]);

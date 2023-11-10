@@ -2,9 +2,9 @@
 
 namespace Modules\Tutorial\Models;
 
-use App\Trait\CommonModelMethodsTrait;
-use App\Trait\CommonScopesTrait;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
 use Modules\Tutorial\Database\factories\TutorialFactory;
 
 class Tutorial extends Model
