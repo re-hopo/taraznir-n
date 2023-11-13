@@ -147,7 +147,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-30);
 }
 
@@ -173,7 +173,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-45);
 }
 
@@ -208,7 +208,7 @@
 	text-transform:uppercase;
 	display:inline-block;
 	padding-right:var(--padding-right-25);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .main-slider .active .shop-now{
@@ -388,7 +388,7 @@
 	margin:12px 0;
 	font-size:var(--font-15);
 	color:var(--black-color);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .main-slider .hover-box .hover-price{
@@ -725,7 +725,7 @@
 	color:var(--black-color);
 	text-transform:capitalize;
 	background-color:var(--white-color);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 	border:1px solid var(--color-seventyeight);
 }
 
@@ -797,7 +797,7 @@
 	font-size:var(--font-16);
 	text-transform:capitalize;
 	margin-top:var(--margin-top-10);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-5);
 	padding-bottom:var(--padding-bottom-15);
 	border-bottom:1px solid rgba(var(--black-color-rgb), 0.06);
@@ -967,7 +967,7 @@
 	border-radius: 50px;
 	color:var(--black-color);
 	text-transform:uppercase;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-5);
     border:1px solid rgba(var(--black-color-rgb), 0.06);
 }
@@ -1030,7 +1030,7 @@
 	display:inline-block;
 	font-size:var(--font-60);
 	color:rgba(var(--black-color-rgb), 0.15);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .brand-section span{
@@ -1040,7 +1040,7 @@
 	font-weight:600;
 	-webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(0, 0, 0, 0.20);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .brand-section strong{
@@ -1123,7 +1123,7 @@
 	font-weight:500;
 	line-height:31px;
 	margin-top:var(--margin-top-15);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sale-block h5 a{
@@ -1142,7 +1142,7 @@
 	color:var(--white-color);
 	text-transform:capitalize;
 	margin-top:var(--margin-top-15);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	padding-right:var(--padding-right-25);
 }
 
@@ -1319,7 +1319,7 @@
 	font-size:var(--font-12);
 	color:var(--white-color);
 	transform:rotateX(90deg);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	background-color:var(--black-color);
 	transition: all 600ms ease;
     -moz-transition: all 600ms ease;
@@ -1419,7 +1419,7 @@
 	width:160px;
 	font-size:var(--font-70);
 	color:var(--color-fourteen);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .counter-section .counter-boxed .counter .odometer{
@@ -1433,7 +1433,7 @@
 	font-size:var(--font-16);
 	color:var(--color-fifteen);
 	margin-left:var(--margin-left-30);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .counter-section .counter-boxed .counter:before{
@@ -1494,7 +1494,7 @@
 	color:var(--black-color);
 	text-transform:capitalize;
 	margin-top:var(--margin-top-10);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .collection-section .deals{
@@ -1519,7 +1519,7 @@
     color: var(--black-color);
     text-transform: uppercase;
     margin-top: var(--margin-top-45);
-    font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
     padding-right: var(--padding-right-25);
 }
 
@@ -1580,7 +1580,7 @@
 	padding:20px 10px 10px;
 	font-size:var(--font-24);
 	color:var(--white-color);
-	font-family: var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .collection-section .price-tag:before{
@@ -1645,7 +1645,7 @@
 	text-transform:capitalize;
 	color:var(--color-seventeen);
 	margin-left:var(--margin-left-60);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	-webkit-transition:all 500ms ease;
 	-moz-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
@@ -1904,7 +1904,7 @@
 	font-size:var(--font-15);
 	color:var(--color-eightteen);
 	margin-top:var(--margin-top-20);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .news-block .info span{
@@ -2367,7 +2367,7 @@
     font-size:var(--font-24);
     text-transform:uppercase;
     background-color:var(--white-color);
-    font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
     /* -webkit-animation: icon-bounce 0.8s ease-out infinite;
     animation: icon-bounce 0.8s ease-out infinite; */
 }
@@ -2418,7 +2418,7 @@
     -ms-transition: all 1000ms ease;
     -o-transition: all 1000ms ease;
     transition: all 1000ms ease;
-    font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
     margin-bottom:var(--margin-bottom-15);
 }
 
@@ -2443,7 +2443,7 @@
     -ms-transition: all 1000ms ease;
     -o-transition: all 1000ms ease;
     transition: all 1000ms ease;
-    font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
     margin-bottom:var(--margin-bottom-30);
 }
 
@@ -2469,7 +2469,7 @@
     -ms-transition: all 1000ms ease;
     -o-transition: all 1000ms ease;
     transition: all 1000ms ease;
-    font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
     margin-bottom:var(--margin-bottom-40);
 }
 
@@ -2593,7 +2593,7 @@
     font-size:var(--font-80);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 /* Scroll Box */
@@ -2736,7 +2736,7 @@
 	color:var(--black-color);
 	margin-top:var(--margin-top-20);
 	margin-bottom:var(--margin-bottom-20);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .product-block-three .list{
@@ -2992,7 +2992,7 @@
 	margin:12px 0;
 	font-size:var(--font-15);
 	color:var(--black-color);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .collection-section-two .hover-box .hover-price{
@@ -3034,7 +3034,7 @@
 	transform:translateY(-50%);
 	writing-mode: vertical-rl;
 	transform: rotate(180deg);
-	font-family:var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .products-section-five .purchase-box{
@@ -3237,7 +3237,7 @@
 	font-weight:600;
 	color:var(--color-twentyeight);
 	margin-top:var(--margin-top-30);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .services-section .content .numbers{
@@ -3326,7 +3326,7 @@
 
 .service-block h5{
 	font-weight:400;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .service-block h5 a{
@@ -3402,7 +3402,7 @@
 	margin:0 auto;
 	font-size:var(--font-20);
 	color:var(--black-color);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-20);
 }
 
@@ -3411,7 +3411,7 @@
 	font-weight:400;
 	font-size:var(--font-13);
 	color:var(--color-twentynine);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .testimonial-block-two .designation span:before{
@@ -3428,7 +3428,7 @@
 	position:relative;
 	font-size:var(--font-16);
 	padding-right:var(--padding-right-30);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .testimonial-block-two .designation span:after{
@@ -3664,7 +3664,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-20);
 }
 
@@ -3690,7 +3690,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-10);
 }
 
@@ -3715,7 +3715,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-30);
 }
 
@@ -3741,7 +3741,7 @@
 	-ms-transition: all 1000ms ease;
 	-o-transition: all 1000ms ease;
 	transition: all 1000ms ease;
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-40);
 }
 
@@ -4024,7 +4024,7 @@
 
 .links-section .link-column h6{
 	font-weight:500;
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-20);
 }
 
@@ -4059,7 +4059,7 @@
 	color:var(--main-color);
 	font-size:var(--font-14);
 	padding-right:var(--padding-right-25);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .links-section .link-column .view-all:before{
@@ -4147,7 +4147,7 @@
 	font-size:var(--font-16);
 	text-transform:capitalize;
 	margin-top:var(--margin-top-10);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .shop-item-two h6 a{
@@ -4496,7 +4496,7 @@
 	text-transform:capitalize;
 	color:var(--black-color);
 	border:1px solid #000000;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-30);
 }
 
@@ -4511,9 +4511,8 @@
 
 .sale-section-two .text{
 	color:var(--color-twentyfour);
-	font-family:var(--font-family-Jost);
 	margin-bottom:var(--margin-bottom-30);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sale-section-two .shop-now{
@@ -4525,7 +4524,7 @@
 	color: var(--color-thirtyfour);
 	margin-top:var(--margin-top-40);
     padding-right: var(--padding-right-25);
-    font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sale-section-two .shop-now:before{
@@ -4569,7 +4568,7 @@
 	padding:20px 10px 10px;
 	font-size:var(--font-24);
 	color:var(--white-color);
-	font-family: var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sale-section-two .price-tag:before{
@@ -4741,7 +4740,7 @@
 	font-size:var(--font-15);
 	text-transform:capitalize;
 	margin-top:var(--margin-top-5);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	padding-bottom:var(--padding-bottom-5);
 	border-bottom:1px solid rgba(var(--black-color-rgb), 0.06);
 }
@@ -4944,7 +4943,7 @@
 	font-weight:500;
 	margin-top:var(--margin-top-10);
 	margin-bottom:var(--margin-bottom-10);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .tracker-block h5 a{
@@ -5037,7 +5036,7 @@
 	padding:20px 10px 10px;
 	font-size:var(--font-24);
 	color:var(--white-color);
-	font-family: var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .tracker-block .price-tag:before{
@@ -5129,7 +5128,7 @@
 	font-size:var(--font-28);
 	margin-top:var(--margin-top-20);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .testimonial-section-three .text span{
@@ -5357,11 +5356,10 @@
 	height:65px;
 	font-weight:500;
 	padding:12px 44px;
-	font-family: "flaticon";
 	font-size:var(--font-16);
 	color:var(--white-color);
 	text-transform:uppercase;
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	background-color:var(--black-color);
 }
 
@@ -5406,14 +5404,14 @@
 	font-size:var(--font-13);
 	color:var(--color-twentynine);
 	margin-top:var(--margin-top-40);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .newsletter-section .designation span{
 	position:relative;
 	font-size:var(--font-16);
 	padding-right:var(--padding-right-30);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .testimonial-block-two .designation span:after{
@@ -5463,6 +5461,7 @@
 	color: var(--color-thirtyseven);
 	margin-left: var(--margin-right-15);
 	padding-left: var(--padding-right-15);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .page-title .bread-crumb li:before{
@@ -5693,7 +5692,7 @@
 	color:var(--black-color);
 	text-transform:capitalize;
 	padding-bottom:var(--padding-bottom-10);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	border-bottom:1px solid rgba(var(--black-color-rgb), 0.08);
 	direction: rtl;
 }
@@ -5724,7 +5723,7 @@
 	display:block;
 	font-size:var(--font-16);
 	color:var(--color-thirtynine);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .category-list li a:hover{
@@ -6083,7 +6082,7 @@
 .shop-detail-section .content-column h3{
 	font-weight:600;
 	color:var(--black-color);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .shop-detail-section .content-column .text{
@@ -6434,12 +6433,11 @@
     font-size: var(--font-18);
     color: var(--color-fourtynine);
     margin-bottom:var(--margin-bottom-30);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .prod-tabs .tabs-content .tab .title{
 	position:relative;
-	color:var(--text-color);
 	font-size:var(--font-20);
 	font-weight:400;
 	margin-top:var(--margin-top-10);
@@ -6515,7 +6513,7 @@
 	font-weight:500;
 	color:var(--black-color);
 	font-size:var(--font-16);
-	font-family: var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-15);
 }
 
@@ -6682,7 +6680,7 @@
 .shop-detail-section .lower-box h3{
 	color:var(--color-twelve);
 	font-size:var(--font-28);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-15);
 }
 
@@ -6700,7 +6698,7 @@
     color: var(--color-fourtynine);
 	padding-left:var(--padding-left-30);
 	margin-bottom:var(--margin-bottom-25);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .shop-detail-section .list-one li:before{
@@ -6968,7 +6966,7 @@
 	font-size:var(--font-18);
 	color:var(--black-color);
 	margin-bottom:var(--margin-bottom-5);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	border-bottom:1px solid rgba(var(--black-color-rgb), 0.06);
 }
 
@@ -7079,7 +7077,7 @@
 	font-size:var(--font-15);
 	color:var(--white-color);
 	background-color:var(--main-color);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 /* Shipping Outer */
@@ -7113,7 +7111,7 @@
 	font-size:var(--font-16);
 	color:var(--black-color);
 	margin-bottom:var(--margin-bottom-5);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 	border-bottom:1px solid rgba(var(--black-color-rgb), 0.06);
 }
 
@@ -7345,7 +7343,7 @@
 	text-transform:uppercase;
 	color:var(--color-fiftythree);
 	margin-bottom:var(--margin-bottom-30);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 	border:1px solid rgba(var(--black-color-rgb), 0.07);
 }
 
@@ -7354,7 +7352,7 @@
 	right:25px;
 	font-weight:500;
 	color:var(--color-twelve);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .order-totals li:last-child{
@@ -7393,7 +7391,7 @@
 	-o-transition:all 500ms ease;
 	padding:10px 15px 10px 25px;
 	color:var(--color-fiftythree);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 	background-color:rgba(var(--white-color-rgb), 1);
 	border:1px solid rgba(var(--black-color-rgb), 0.07);
 }
@@ -7482,7 +7480,7 @@
 	text-align:center;
 	display:inline-block;
 	background-color:var(--white-color);
-	font-family:var(--font-family-SpaceGrotesk);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .experiance .counter{
@@ -7511,14 +7509,13 @@
 	bottom:20px;
 	z-index:10;
 	writing-mode: vertical-rl;
-	/* transform:rotate(180deg); */
 	font-weight:400;
 	letter-spacing:1px;
 	padding:30px 15px;
 	font-size:var(--font-16);
 	color:var(--black-color);
 	background-color:var(--white-color);
-	font-family:var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .years-box span{
@@ -7545,14 +7542,14 @@
 	font-size:var(--font-14);
 	color:var(--black-color);
 	border:1px solid var(--black-color);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section h2{
 	font-weight:500;
 	margin-top:var(--margin-top-20);
 	color:var(--color-twentyeight);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .text{
@@ -7561,7 +7558,7 @@
 	color:var(--color-fiftyfive);
 	margin-top:var(--margin-top-20);
 	margin-bottom:var(--margin-bottom-25);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .options{
@@ -7576,7 +7573,7 @@
 	color:var(--color-twentyfive);
 	padding-left:var(--padding-left-45);
 	margin-right:var(--margin-right-50);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .options li .icon{
@@ -7624,7 +7621,7 @@
 	color:var(--color-twentynine);
 	margin-top:var(--margin-top-20);
 	padding-top:var(--padding-top-20);
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	border-top:1px solid rgba(var(--black-color-rgb), 0.10);
 }
 
@@ -7632,7 +7629,7 @@
 	position:relative;
 	font-size:var(--font-16);
 	padding-right:var(--padding-right-30);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .about-section .designation span:after{
@@ -7673,7 +7670,7 @@
 	font-size:var(--font-14);
 	color:var(--black-color);
 	border:1px solid var(--black-color);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sale-section-three .title-box h2{
@@ -7820,7 +7817,7 @@
 	-webkit-transition:all 500ms ease;
 	-ms-transition:all 500ms ease;
 	-o-transition:all 500ms ease;
-	font-family:var(--font-family-Jost);
+    font-family: var(--font-family-Azarmehr);
 	border:1px solid rgba(var(--black-color-rgb), 0.06);
 }
 
@@ -7866,7 +7863,7 @@
 	position: relative;
 	font-weight: 400;
 	font-size: var(--font-18);
-	font-family: var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom: var(--margin-bottom-25);
 	direction: rtl;
 	text-align: right;
@@ -7894,7 +7891,7 @@
 	font-size:var(--font-15);
 	text-transform:capitalize;
 	color:var(--color-fiftyeight);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	border:1px solid rgba(var(--black-color-rgb), 0.10);
 }
 
@@ -7935,7 +7932,7 @@
 	color:var(--white-color);
 	font-size:var(--font-10);
 	background-color:var(--color-fiftynine);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .post-widget .post:last-child{
@@ -8004,7 +8001,7 @@
 	font-size: var(--font-12);
 	text-transform:uppercase;
 	color:var(--color-fiftynine);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 /* Tweet Box */
@@ -8036,7 +8033,7 @@
 	font-size:var(--font-14);
 	color:var(--color-sixtyone);
 	margin-top:var(--margin-top-15);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .tweet-box .tweet a{
@@ -8079,7 +8076,7 @@
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
 	margin-bottom:var(--margin-bottom-20);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	border:2px solid rgba(var(--black-color-rgb), 0.03);
 }
 
@@ -8205,7 +8202,7 @@
 	text-transform:uppercase;
 	color: var(--white-color);
 	background:var(--black-color);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .news-form .form-group .search-btn:hover{
@@ -8250,7 +8247,7 @@
 	font-size: var(--font-20);
 	color:var(--black-color);
 	background-color:var(--white-color);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .news-block-three .lower-content{
@@ -8269,7 +8266,7 @@
 	padding:3px 10px 2px;
 	font-size: var(--font-14);
 	color:var(--white-color);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 	background-color:var(--black-color);
 	margin-right:var(--margin-right-15);
 }
@@ -8525,7 +8522,7 @@
     font-size: var(--font-20);
     color: var(--black-color);
     background-color: var(--white-color);
-    font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .blog-detail .carousel-box{
@@ -8607,7 +8604,7 @@
     padding: 3px 10px 2px;
     font-size: var(--font-14);
     color: var(--white-color);
-    font-family: var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
     background-color: var(--black-color);
     margin-right: var(--margin-right-15);
 }
@@ -8651,14 +8648,14 @@
 	margin:20px 0;
 	font-size:var(--font-32);
 	color:var(--color-sixtyfour);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .blog-detail h4{
 	font-weight:600;
 	color:var(--color-twelve);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .blog-detail h5{
@@ -8683,7 +8680,7 @@
 	padding-right:var(--padding-left-25);
 	margin-left:var(--margin-right-15);
 	padding-left:var(--padding-right-15);
-	font-family: var(--font-family-Outfit);
+    font-family: var(--font-family-Azarmehr);
 	border-left:2px solid rgba(var(--black-color-rgb), 0.10);
 }
 
@@ -8726,7 +8723,7 @@
 .blog-detail .blog-content p{
 	line-height:32px;
 	color:var(--color-fourtynine);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	margin-bottom:var(--margin-bottom-15);
 }
 
@@ -8741,7 +8738,7 @@
 	color:var(--color-twelve);
 	padding-left:var(--padding-left-25);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .blog-detail .list-one li span{
@@ -8773,7 +8770,7 @@
 	margin-top:var(--margin-top-40);
 	margin-bottom:var(--margin-bottom-40);
 	border-left:4px solid var(--black-color);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 	background-color:rgba(var(--black-color-rgb), 0.05);
 }
 
@@ -8836,7 +8833,7 @@
 	padding:3px 10px 2px;
 	font-size: var(--font-14);
 	color:var(--white-color);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 	background-color:var(--black-color);
 }
 
@@ -8856,7 +8853,7 @@
 	color:var(--color-sixtynine);
 	margin-top:var(--margin-top-25);
 	margin-bottom:var(--margin-bottom-25);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 /* Post Share Options */
@@ -8895,7 +8892,7 @@
 	font-size: var(--font-12);
 	color: var(--color-seventeen);
 	margin-right:var(--margin-right-10);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 	border:1px solid rgba(var(--black-color-rgb), 0.15);
 
 	transition:all 500ms ease;
@@ -8986,7 +8983,7 @@
 	font-size:var(--font-14);
 	color:var(--color-sixtyfour);
 	margin-top:var(--margin-top-10);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .blog-detail .post-info .author{
@@ -9174,7 +9171,7 @@
 	text-transform:capitalize;
 	font-size:var(--font-18);
 	color:var(--color-twelve);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sidebar-page-container .comments-area .comment-box .text{
@@ -9183,7 +9180,7 @@
 	font-size:var(--font-15);
 	color:var(--color-sixtynine);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sidebar-page-container .comments-area .comment-info .comment-time{
@@ -9195,7 +9192,7 @@
 	text-transform:uppercase;
 	color:var(--color-seventeen);
 	margin-top:var(--margin-top-5);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .sidebar-page-container .comments-area .comment-box .reply-btn{
@@ -9248,7 +9245,7 @@
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	background-color:rgba(var(--black-color-rgb), 0.03);
 	border:1px solid rgba(var(--black-color-rgb), 0.06);
 }
@@ -9284,7 +9281,7 @@
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	background-color:rgba(var(--black-color-rgb), 0.03);
 	border:1px solid rgba(var(--black-color-rgb), 0.06);
 }
@@ -9306,16 +9303,15 @@
 	font-weight: 400;
 	line-height: 22px;
 	background: #ffffff;
-	padding: 4px 10px 0;
-	padding-left: 30px;
-	font-size:var(--font-16);
+    padding: 4px 10px 0 30px;
+    font-size:var(--font-16);
 	color: var(--color-sixtynine);
 	-webkit-transition: all 300ms ease;
 	-moz-transition: all 300ms ease;
 	-ms-transition: all 300ms ease;
 	-o-transition: all 300ms ease;
 	transition: all 300ms ease;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .comment-form .check-box input[type="checkbox"]:checked + label{
@@ -9549,7 +9545,7 @@
 	-moz-transition:all 500ms ease;
 	-webkit-transition:all 500ms ease;
 	padding:15px 30px 15px 20px;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .accordion-box .block .icon-outer{
@@ -9624,7 +9620,7 @@
 .accordion-box .block .content .text{
 	color:var(--color-fourtynine);
 	padding-top:var(--padding-top-15);
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 	border-top:1px solid rgba(var(--black-color-rgb), 0.10);
 }
 
@@ -9661,7 +9657,7 @@
 	font-weight:600;
 	font-size:var(--font-55);
 	margin-top:var(--margin-top-15);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .error-section .text{
@@ -9712,7 +9708,7 @@
 .contact-page-section .info-box .icon{
 	position:relative;
 	line-height:1em;
-	margin-right: 25px;
+	margin-left: 25px;
 	font-family: "Flaticon";
 	color:var(--black-color);
     font-size: var(--font-56);
@@ -9729,7 +9725,7 @@
     font-size: var(--font-20);
     color: var(--black-color);
 	margin-bottom: var(--margin-bottom-5);
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .contact-page-section .info-box a{
@@ -9748,6 +9744,7 @@
 	font-size: var(--font-16);
 	color:var(--color-seventy);
 	margin-top: var(--margin-top-5);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .contact-page-section .map-column{
@@ -9778,7 +9775,7 @@
 
 .contact-page-section .title-box h3{
 	font-weight:500;
-	font-family:var(--font-family-Josefin);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .contact-page-section .title-box .text{
@@ -9815,7 +9812,7 @@
 	padding:10px 25px;
 	height:55px;
 	border-radius:0;
-	font-size:var(--font-16);
+	font-size:var(--font-14);
 	color: var(--color-fourtyfive);
 	background:none;
 	-webkit-transition:all 300ms ease;
@@ -9824,6 +9821,19 @@
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
 	border:1px solid rgba(var(--black-color-rgb), 0.08);
+    direction: rtl;
+    font-weight: 500;
+    font-family: var(--font-family-Azarmehr);
+}
+
+.contact-form .form-group span{
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding-top: 5px;
+    font-family: var(--font-family-Azarmehr);
+    color: #EC4B4B;
+    font-size: 13px;
 }
 
 .contact-form .form-group .ui-selectmenu-button.ui-button{
@@ -9862,14 +9872,16 @@
 	height:310px;
 	background:none;
 	resize:none;
-	font-size:16px;
 	border-radius:0;
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
 	-moz-transition:all 300ms ease;
 	transition:all 300ms ease;
+    direction: rtl;
+    font-weight: 500;
 	border:1px solid rgba(var(--black-color-rgb), 0.08);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .contact-form .theme-btn{
@@ -10506,7 +10518,7 @@
 	position:relative;
 	color:#000;
 	margin-top:var(--margin-top-25);
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 	font-weight: 400;
 	font-size: 22px;
 }
@@ -10516,7 +10528,7 @@
 	line-height:26px;
 	color:var(--black-color);
 	margin-top:var(--margin-top-15);
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 	font-weight: 200;
 	font-size: 16px;
 }
@@ -10557,7 +10569,7 @@
 	padding-left:var(--padding-left-30);
 }
 .feature-two_skill-inner *{
-	font-family: 'AzarMehr'!important;
+    font-family: var(--font-family-Azarmehr);
 }
 
 
@@ -10672,7 +10684,7 @@
 
 .page-title-two h2{
 	font-weight:500;
-	font-family:var(--color-twentyeight);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .page-title-two .button-box{
@@ -10698,10 +10710,10 @@
 .services-section-first{
 	position:relative;
 	padding:100px 0 70px;
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 }
 .services-section-first h2{
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 }
 .services-section-first .more-service{
 	position:relative;
@@ -10734,7 +10746,7 @@
 
 .services-section-first .sec-title .text{
 	margin-top:var(--margin-zero);
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 }
 
 .services-section-first .more-service:hover span{
@@ -10804,7 +10816,7 @@
 .services-section-first .service-block h5{
 	font-weight:400;
 	margin-top:var(--margin-top-25);
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 }
 
 .services-section-first .service-block h5 a{
@@ -10813,7 +10825,7 @@
 
 .services-section-first .service-block .text{
 	margin-top:var(--margin-top-20);
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 	font-weight: 200;
 	color: #000;
 }
@@ -10861,7 +10873,7 @@
 .vision-block h3{
 	font-weight:700;
 	color:var(--black-color);
-	font-family:var(--font-family-Azarmehr);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .vision-block h3 a{
@@ -10976,7 +10988,7 @@
 
 .portfolio-block-two h4{
 	font-weight:700;
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .portfolio-block-two h4 a{
@@ -10995,7 +11007,7 @@
 	text-transform:uppercase;
 	font-size:var(--font-12);
 	margin-top:var(--margin-top-15);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .portfolio-block-two .arrow{
@@ -11265,14 +11277,14 @@
 	line-height:1em;
 	color:var(--white-color);
 	font-size:var(--font-50);
-	font-family:var(--font-family-Teko);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .fact-counter .counter-column h5{
 	font-weight:400;
 	color:var(--white-color);
 	margin-top:var(--margin-top-10);
-	font-family:var(--font-family-Roboto);
+    font-family: var(--font-family-Azarmehr);
 }
 
 
@@ -12587,7 +12599,7 @@
 	font-size:var(--font-16);
 	color:var(--color-six);
 	margin-bottom:var(--margin-bottom-25);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .portfolio-detail-section .overlay-box ul li span{
@@ -12639,7 +12651,7 @@
 	font-size:var(--font-18);
 	color:var(--color-thirtyeight);
 	margin-bottom:var(--margin-bottom-20);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .portfolio-detail-section .check-list{
@@ -12654,7 +12666,7 @@
 	color:var(--color-thirtyfour);
 	padding-right:var(--padding-left-30);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .portfolio-detail-section .check-list li:before{
@@ -12725,7 +12737,7 @@
 	font-size:var(--font-18);
 	color:var(--color-thirtyeight);
 	margin-bottom:var(--margin-bottom-20);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .service-detail-section .check-list{
@@ -12740,7 +12752,7 @@
 	color:var(--color-thirtyfour);
 	padding-right:var(--padding-left-30);
 	margin-bottom:var(--margin-bottom-15);
-	font-family:var(--font-family-DMSans);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .service-detail-section .check-list li:before{
@@ -12771,7 +12783,7 @@
 	font-size: var(--font-16);
 	text-transform: capitalize;
 	background-color:var(--black-color);
-	font-family:var(--font-family-Nunito);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .btn-style-eleven:before{
@@ -13790,7 +13802,7 @@
 .register-section{
 	position: relative;
 	top: -261px;
-	font-family: AzarMehr;
+    font-family: var(--font-family-Azarmehr);
 	text-align: right;
 	direction: rtl;
 	margin-bottom: -100px;
@@ -13933,16 +13945,16 @@
 	-moz-transition:all 300ms ease;
 	text-align: center;
 	font-weight: 500;
-	font-family: 'AZARMEHR';
+	font-family:var(--font-family-Azarmehr);
 }
 
 .styled-form input::placeholder {
 	text-align: center;
-	font-family: AzarMehr;
+    font-family:var(--font-family-Azarmehr);
 	font-weight: 200;
 }
 .styled-form .submit-form-btn{
-	font-family: AzarMehr!important;
+    font-family:var(--font-family-Azarmehr)!important;
 }
 .checkout-section .styled-form input[type="text"],
 .checkout-section .styled-form input[type="email"],
@@ -13968,7 +13980,7 @@
 	font-weight:500;
 	border-radius:50px;
 	text-transform:capitalize;
-	font-family:var(--font-family-Inter);
+    font-family: var(--font-family-Azarmehr);
 }
 
 .styled-form textarea{
@@ -13980,4 +13992,16 @@
 .styled-form select:focus,
 .styled-form textarea:focus{
 	border-color:var(--main-color);
+}
+
+
+
+
+
+/* custom theme*/
+.swal2-container{
+    direction: rtl;
+}
+.swal2-container h2{
+    font-family: var(--font-family-Azarmehr);
 }

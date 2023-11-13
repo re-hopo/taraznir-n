@@ -12,7 +12,20 @@
 */
 
 
+use App\Http\Livewire\Pages\AboutPage;
+use App\Http\Livewire\Pages\SearchPage;
 use Illuminate\Support\Facades\Route;
+use Modules\Theme\Livewire\Pages\ContactPage;
 use Modules\Theme\Livewire\Pages\HomePage;
 
-Route::get('/' , HomePage::class);
+Route::get('/' , HomePage::class)
+    ->name('/');
+
+Route::get('/contact' , ContactPage::class )
+    ->name('contact');
+
+Route::get('/about' , AboutPage::class )
+    ->name('about');
+
+Route::get('/search' , SearchPage::class )
+    ->name('search');

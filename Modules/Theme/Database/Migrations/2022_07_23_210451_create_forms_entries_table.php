@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meta', function (Blueprint $table) {
+        Schema::create('forms_entries', function (Blueprint $table) {
             $table->id();
-            $table->string('key');
-            $table->longText('value');
-            $table->integer('metaable_id');
-            $table->longText('metaable_type');
+            $table->string('form_id');
+            $table->string('user_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meta');
+        Schema::dropIfExists('forms_entries');
     }
 };

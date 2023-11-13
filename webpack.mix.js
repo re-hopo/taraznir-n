@@ -49,7 +49,7 @@ mix
         __dirname + '/Modules/Theme/Resources/js/mixitup.js',
         __dirname + '/Modules/Theme/Resources/js/jquery.marquee.min.js',
         __dirname + '/Modules/Theme/Resources/js/nav-tool.js',
-
+        __dirname + '/Modules/Theme/Resources/js/sweetalert.js',
         __dirname + '/Modules/Theme/Resources/js/jquery-ui.js',
         __dirname + '/Modules/Theme/Resources/js/script.js',
     ], 'public/js/scripts.min.js')

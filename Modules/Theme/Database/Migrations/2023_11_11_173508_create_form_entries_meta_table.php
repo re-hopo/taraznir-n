@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('meta', function (Blueprint $table) {
+        Schema::create('form_entries_meta', function (Blueprint $table) {
             $table->id();
             $table->string('key');
-            $table->longText('value');
-            $table->integer('metaable_id');
-            $table->longText('metaable_type');
+            $table->longText('value')->nullable();
+            $table->bigInteger('form_id');
+
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meta');
+        Schema::dropIfExists('form_entries_meta');
     }
 };

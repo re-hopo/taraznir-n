@@ -1,6 +1,6 @@
 module.exports = {
     content: [
-        './vendor/awcodes/filament-curator/resources/**/*.blade.php',
+        './Modules/Theme/Resources/views/forms/*.blade.php',
     ],
     theme: {
         extend: {},

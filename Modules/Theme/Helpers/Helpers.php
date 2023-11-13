@@ -9,6 +9,7 @@ use Exception;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Redis;
+use Modules\Theme\Models\Option;
 
 class Helpers
 {
@@ -164,6 +165,17 @@ class Helpers
         return $data;
     }
 
+    public static function redisRemover( $key ): void
+    {
+        $keys = Redis::keys( $key);
+        if ( !empty( $keys ) && is_array( $keys )){
+            foreach ( $keys as $key ){
+                Redis::del( str_replace( "taraznir_",'',$key )  );
+            }
+        }
+    }
+
+
     public static function returnValueIsTrue( $data ,$index ,$value ,$default = '' )
     {
         if ( !empty( self::indexChecker ( $data ,$index ) ) ) {
@@ -206,5 +218,47 @@ class Helpers
     }
 
 
+    public static function socialsTagGenerator( $type ,$date  ) :string
+    {
+        $tags = '
+            <meta name="keywords" content="[keywords]">
+            <meta name="description" content="[description]">
+            <meta property="og:locale" content="fa_IR" />
+            <meta property="og:type" content="[target]">
+            <meta property="og:title" content="[title]">
+            <meta property="og:url" content="[url]">
+            <meta property="og:image" content="[image]">
+            <meta property="og:description" content="[description]">
+            <meta property="twitter:card" content="summary_large_image">
+            <meta property="twitter:url" content="[url]">
+            <meta property="twitter:title" content="[title]">
+            <meta property="twitter:description" content="[description]">
+            <meta property="twitter:image" content="[image]">
+            <meta name="twitter:creator" content="@TalentGarnet" />
+            <meta name="twitter:site" content="@TalentGarnet" />
+        ';
+
+        if( $type == 'page')
+            $tags = str_replace('[target]', 'website', $tags);
+        else
+            $tags = str_replace('[target]', 'article', $tags);
+
+
+        $options = Helpers::redisHandler( 'theme_options' ,function (){
+            return
+                Option::where('key' ,'theme_options')
+                    ->with(['meta' ,'media'])
+                    ->first();
+        });
+        $default_description = Helpers::getMetaValueByKey($options ,'meta_description');
+        $default_keywords    = Helpers::getMetaValueByKey($options ,'meta_keywords');
+
+        $cover = route('/').'/images/taraznir-logo-2x.png';
+        $tags  = str_replace( '[image]'       ,$cover       ,$tags );
+        $tags  = str_replace( '[title]'       ,$date->title ,$tags );
+        $tags  = str_replace( '[url]'         ,$date->url   ,$tags );
+        $tags  = str_replace( '[keywords]'    ,$date->keywords    ?? $default_description ,$tags );
+        return   str_replace( '[description]' ,$date->description ?? $default_keywords    ,$tags );
+    }
 
 }
