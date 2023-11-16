@@ -11,3 +11,13 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use Modules\Service\Livewire\ServiceDetail;
+use Modules\Service\Livewire\ServicePage;
+
+
+Route::get('service' ,ServicePage::class )
+    ->name('service');
+
+Route::get('service/{slug}' ,ServiceDetail::class )
+    ->name('service-detail');

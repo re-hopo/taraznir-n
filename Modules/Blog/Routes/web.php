@@ -12,3 +12,12 @@
 */
 
 
+use Illuminate\Support\Facades\Route;
+use Modules\Blog\Livewire\BlogDetail;
+use Modules\Blog\Livewire\BlogPage;
+
+Route::get('blog' , BlogPage::class)
+    ->name('blog');
+
+Route::get('blog/{slug}' , BlogDetail::class)
+    ->name('blog-detail');

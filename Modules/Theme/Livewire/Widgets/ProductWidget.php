@@ -8,6 +8,6 @@ class ProductWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.product-widget');
+        return view('theme::widgets.product-widget');
     }
 }

@@ -2,12 +2,15 @@
 
 namespace Modules\Blog\Livewire;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Modules\Blog\Models\Blog;
 use Modules\Theme\Helpers\Helpers;
 
-class BlogSection extends Component
+class BlogDetail extends Component
 {
+
+    #[Layout('theme::layout.app')]
     public function render()
     {
         $blogs =(object) Helpers::redisHandler( 'blog-section' ,function (){
@@ -15,11 +18,11 @@ class BlogSection extends Component
                 Blog::with(['category' ,'meta' ,'media'])
                     ->activeScope()
                     ->orderBy('chosen' ,'DESC')
-                    ->limit(config('blog.section_limit' ,10))
+                    ->limit(config('blog::section_limit' ,10))
                     ->get();
         });
 
-        return view('blog::blog-section',[
+        return view('blog::blog-page',[
             'items' => $blogs
         ]);
     }

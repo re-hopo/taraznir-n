@@ -35,7 +35,6 @@ class OptionResource extends Resource
         return static::getModel()::count();
     }
 
-
     public static  function can(string $action, ?Model $record = null): bool
     {
         return auth()->user()->isAdmin();
@@ -51,7 +50,7 @@ class OptionResource extends Resource
                         self::formKey(),
                         self::formToggleTextType(),
                         self::formEditor('value'),
-                        self::formMetaTextAndAttachment(),
+                        self::formMetaByTextarea(),
                     ])->columnSpan(9),
 
                     Grid::make()->schema([

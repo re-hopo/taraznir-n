@@ -2,10 +2,12 @@
 
 namespace Modules\Service\Filament\Resources;
 
+use Exception;
 use Filament\Forms\Components\Grid;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Service\Filament\Resources\ServiceResource\Pages\CreateService;
 use Modules\Service\Filament\Resources\ServiceResource\Pages\EditService;
 use Modules\Service\Filament\Resources\ServiceResource\Pages\ListServices;
@@ -23,6 +25,16 @@ class ServiceResource extends Resource
     protected static ?string $navigationGroup = 'پست ها';
     protected static ?int $navigationSort = 3;
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function can(string $action, ?Model $record = null): bool
+    {
+        return auth()->user()->isAdmin();
+    }
+
 
     public static function form(Form $form): Form
     {
@@ -31,36 +43,29 @@ class ServiceResource extends Resource
                 Grid::make()->columns(12) ->schema([
                     Grid::make()->schema([
                         self::formTitleAndSlug(),
-                        self::formMedia(),
+                        self::formCover(),
                         self::formSummary(),
                         self::formEditor(),
-                        self::formMeta([
-                            'question_why_install' => 'سوال بخش اول ',
-                            'result_why_install'   => 'پاسخ بخش اول ',
-                            'question_why_service' => 'سوال بخش دوم ',
-                            'result_why_service'   => 'پاسخ بخش دوم ',
-                            'doing_items'          => ' لیست کارها ',
-                            'keywords'             => 'کلمات کلیدی',
-                            'description'          => 'توضیحات',
-                        ]),
+                        self::formMetaByTextarea()
                     ])->columnSpan(9 ),
                     Grid::make()->schema([
                         self::formStatusAndChosen(),
                         self::formCategory('service'),
-                        self::formCover(),
+                        self::formAttachment(),
                     ])->columnSpan(3 ),
                 ]),
             ]);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                self::tableID(),
+                self::tableID('service'),
+                self::tableCategory(),
                 self::tableCover(),
                 self::tableTitle(),
                 self::tableStatus(),
@@ -86,12 +91,6 @@ class ServiceResource extends Resource
             'create' => CreateService::route('/create'),
             'edit'   => EditService::route('/{record}/edit'),
         ];
-    }
-
-
-    public static function getNavigationBadge(): ?string
-    {
-        return self::getModel()::count();
     }
 
 }

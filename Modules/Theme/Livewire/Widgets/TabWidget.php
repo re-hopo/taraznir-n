@@ -8,6 +8,6 @@ class TabWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.tab-widget');
+        return view('theme::widgets.tab-widget');
     }
 }

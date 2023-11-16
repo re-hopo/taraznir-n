@@ -8,6 +8,6 @@ class SearchWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.search-widget');
+        return view('theme::widgets.search-widget');
     }
 }

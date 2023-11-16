@@ -8,6 +8,6 @@ class CategoryWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.category-widget');
+        return view('theme::widgets.category-widget');
     }
 }

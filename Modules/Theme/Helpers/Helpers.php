@@ -156,6 +156,7 @@ class Helpers
 
 
     public static function redisHandler( string $key ,Closure|null $value ){
+        return $value();
         $data = unserialize( Redis::get( $key) );
         if ( empty( $data ) ){
             Redis::set( $key ,serialize( $value() ) );
@@ -193,7 +194,7 @@ class Helpers
         return '';
     }
 
-    public static function getMetaValueByKey(Model $model ,string $key ,$default = '')
+    public static function getMetaValueByKey( $model ,string $key ,$default = '')
     {
         if(method_exists($model ,'meta'))
             return $model->meta()->where('key' ,$key)->first()?->value;
@@ -217,14 +218,20 @@ class Helpers
         return [];
     }
 
-
-    public static function seoTagsGenerator( $seo ,$page ,$title ,$description = '' ,$keywords = '') :string
+    public static function mainPagesSEO()
     {
-        $k = $keywords;
-        $d = $description;
+        return Helpers::redisHandler( 'main_pages_seo' ,function (){
+            return Option::where('key' ,'main_pages_seo')->get();
+        });
+    }
+
+    public static function seoTagsGenerator( $seo ,$page ,$title ,$detailPage = null) :string
+    {
+        $d = $detailPage ? self::getMetaValueByKey($seo ,"meta_description" ) : '';
+        $k = $detailPage ? self::getMetaValueByKey($seo ,"meta_keywords" )    : '';
 
         $tags = '
-            <title>[keywords]</title>
+            <title>[title]</title>
             <meta name="keywords" content="[keywords]">
             <meta name="description" content="[description]">
             <meta property="og:locale" content="fa_IR" />
@@ -247,13 +254,13 @@ class Helpers
         else
             $tags = str_replace('[target]', 'article', $tags);
 
-        if( !$description && $page && $seo){
+        if( !$d && $page && $seo){
             $d = self::getMetaValueByKey($seo ,"{$page}_description" );
             if(!$d)
                 $d = self::getMetaValueByKey($seo ,"default_description" );
         }
 
-        if( !$keywords && $page && $seo ){
+        if( !$k && $page && $seo ){
             $k = self::getMetaValueByKey($seo ,"{$page}_keywords" );
             if(!$k)
                 $k = self::getMetaValueByKey($seo ,"default_keywords" );

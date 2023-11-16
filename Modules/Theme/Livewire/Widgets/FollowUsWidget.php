@@ -8,6 +8,6 @@ class FollowUsWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.follow-us-widget');
+        return view('theme::widgets.follow-us-widget');
     }
 }

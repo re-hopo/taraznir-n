@@ -8,6 +8,7 @@ use Filament\Panel;
 use Modules\Blog\Filament\Resources\BlogResource;
 use Modules\News\Filament\Resources\NewsResource;
 use Modules\Project\Filament\Resources\ProjectResource;
+use Modules\Service\Filament\Resources\ServiceResource;
 use Modules\Standard\Filament\Resources\StandardResource;
 use Modules\Theme\Filament\Resources\CategoryResource;
 use Modules\Theme\Filament\Resources\OptionResource;
@@ -32,6 +33,7 @@ class ResourcesList implements Plugin
                 ProjectResource::class,
                 NewsResource::class,
                 TutorialResource::class,
+                ServiceResource::class
             ])
             ->pages([
 //                Settings::class,

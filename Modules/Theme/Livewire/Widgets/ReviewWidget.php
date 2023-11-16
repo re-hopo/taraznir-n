@@ -8,6 +8,6 @@ class ReviewWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.review-widget');
+        return view('theme::widgets.review-widget');
     }
 }

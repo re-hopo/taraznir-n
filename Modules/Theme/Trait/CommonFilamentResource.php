@@ -170,7 +170,7 @@ trait CommonFilamentResource
             ]);
     }
 
-    public static function formMetaKeyOptions( array $options ): Section
+    public static function formMetaKeyOptions( array $options = [] ): Section
     {
         return
             Section::make()->schema([
@@ -190,7 +190,7 @@ trait CommonFilamentResource
     }
 
 
-    public static function formMetaTextAndAttachment(): Section
+    public static function formMetaByTextarea(): Section
     {
         return
             Section::make()

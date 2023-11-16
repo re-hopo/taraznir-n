@@ -8,6 +8,6 @@ class MasterWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.master-widget');
+        return view('theme::widgets.master-widget');
     }
 }

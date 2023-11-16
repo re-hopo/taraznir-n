@@ -8,6 +8,6 @@ class SliderWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.slider-widget');
+        return view('theme::widgets.slider-widget');
     }
 }

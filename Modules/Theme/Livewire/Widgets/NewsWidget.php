@@ -8,6 +8,6 @@ class NewsWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.news-widget');
+        return view('theme::widgets.news-widget');
     }
 }

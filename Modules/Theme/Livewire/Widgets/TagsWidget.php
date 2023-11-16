@@ -8,6 +8,6 @@ class TagsWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.tags-widget');
+        return view('theme::widgets.tags-widget');
     }
 }

@@ -8,6 +8,6 @@ class AdsWidget extends Component
 {
     public function render()
     {
-        return view('theme::widget.ads-widget');
+        return view('theme::widgets.ads-widget');
     }
 }
