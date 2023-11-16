@@ -1,3 +1,9 @@
+@php use \Modules\Theme\Helpers\Helpers; @endphp
+@section('seo')
+    {!! Helpers::seoTagsGenerator( $seo ,'about' ,' تارازنیر | خانه') !!}
+@endsection
+
+
 <div>
     <livewire:theme::components.main-slider />
     <livewire:theme::components.introduce-section />

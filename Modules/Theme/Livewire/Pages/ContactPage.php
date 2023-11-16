@@ -16,7 +16,7 @@ class ContactPage extends Component
     public function render():View
     {
         $seo = Helpers::redisHandler( 'main_pages_seo' ,function (){
-            return Option::where('key' ,'pages_seo')->get();
+            return Option::where('key' ,'main_pages_seo')->get();
         });
 
         return view('theme::pages.contact-page' ,[

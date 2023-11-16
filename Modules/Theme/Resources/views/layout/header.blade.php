@@ -16,7 +16,7 @@
                     <div class="logo">
                         <a href="/">
                             <img
-                                src="/images/logos/taraznir-logo-0.5x.png"
+                                src="{{config('theme.logo.0,5x')}}"
                                 alt="taraznir logo"
                                 width="160"
                                 height="60"
@@ -81,7 +81,6 @@
                                         <input
                                             type="search"
                                             name="search-field"
-                                            defaultValue=""
                                             placeholder="جستجو"
                                         />
                                         <button type="submit">
@@ -202,7 +201,9 @@
         <div class="auto-container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html" title=""><img src="images/logo-small.png" alt="" title=""></a>
+                    <a href="{{route('/')}}" title="{{config('app.name')}}">
+                        <img src="{{config('theme.logo.0,25x')}}" alt="{{config('app.name')}}" title="{{config('app.name')}}">
+                    </a>
                 </div>
 
                 <div class="right-box">
@@ -220,7 +221,9 @@
         <div class="menu-backdrop"></div>
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="images/mobile-logo.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index.html">
+                    <img src="images/mobile-logo.png" alt="" title=""></a>
+            </div>
             <!-- Search -->
             <div class="search-box">
                 <form method="post" action="contact.html">

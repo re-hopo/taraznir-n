@@ -218,9 +218,13 @@ class Helpers
     }
 
 
-    public static function socialsTagGenerator( $type ,$date  ) :string
+    public static function seoTagsGenerator( $seo ,$page ,$title ,$description = '' ,$keywords = '') :string
     {
+        $k = $keywords;
+        $d = $description;
+
         $tags = '
+            <title>[keywords]</title>
             <meta name="keywords" content="[keywords]">
             <meta name="description" content="[description]">
             <meta property="og:locale" content="fa_IR" />
@@ -238,27 +242,29 @@ class Helpers
             <meta name="twitter:site" content="@TalentGarnet" />
         ';
 
-        if( $type == 'page')
+        if($page)
             $tags = str_replace('[target]', 'website', $tags);
         else
             $tags = str_replace('[target]', 'article', $tags);
 
+        if( !$description && $page && $seo){
+            $d = self::getMetaValueByKey($seo ,"{$page}_description" );
+            if(!$d)
+                $d = self::getMetaValueByKey($seo ,"default_description" );
+        }
 
-        $options = Helpers::redisHandler( 'theme_options' ,function (){
-            return
-                Option::where('key' ,'theme_options')
-                    ->with(['meta' ,'media'])
-                    ->first();
-        });
-        $default_description = Helpers::getMetaValueByKey($options ,'meta_description');
-        $default_keywords    = Helpers::getMetaValueByKey($options ,'meta_keywords');
+        if( !$keywords && $page && $seo ){
+            $k = self::getMetaValueByKey($seo ,"{$page}_keywords" );
+            if(!$k)
+                $k = self::getMetaValueByKey($seo ,"default_keywords" );
+        }
 
-        $cover = route('/').'/images/taraznir-logo-2x.png';
-        $tags  = str_replace( '[image]'       ,$cover       ,$tags );
-        $tags  = str_replace( '[title]'       ,$date->title ,$tags );
-        $tags  = str_replace( '[url]'         ,$date->url   ,$tags );
-        $tags  = str_replace( '[keywords]'    ,$date->keywords    ?? $default_description ,$tags );
-        return   str_replace( '[description]' ,$date->description ?? $default_keywords    ,$tags );
+        $cover = route('/') . config('theme.logo.1x');
+        $tags  = str_replace( '[image]'       ,$cover            ,$tags );
+        $tags  = str_replace( '[title]'       ,$title            ,$tags );
+        $tags  = str_replace( '[url]'         ,url()->current()  ,$tags );
+        $tags  = str_replace( '[description]' ,$d ,$tags );
+        return   str_replace( '[keywords]'    ,$k ,$tags );
     }
 
 }

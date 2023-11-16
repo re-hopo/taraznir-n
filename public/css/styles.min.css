@@ -9696,13 +9696,16 @@
 
 .contact-page-section .info-column .inner-column{
 	position:relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 /* Info Box */
 
 .contact-page-section .info-box{
 	position:relative;
-	margin-bottom:var(--margin-bottom-30);
 }
 
 .contact-page-section .info-box .box-inner{
@@ -9760,12 +9763,16 @@
 
 .contact-page-section .map-column .inner-column{
 	position:relative;
+    height:100%;
 }
-
+.contact-page-section .map-column .inner-column>div{
+    height:100%;
+}
 .contact-page-section iframe{
 	position: relative;
 	width: 100%;
-	height: 475px;
+	height: 100%;
+    min-height: 475px;
 }
 
 .contact-page-section .contact-boxed{
@@ -9914,7 +9921,229 @@
 }
 
 
+/***
 
+====================================================================
+	About Page
+====================================================================
+
+***/
+.about-page-section{
+    padding: 110px 0;
+}
+
+.about-page-section blockquote{
+    position:relative;
+    padding:35px 30px;
+    font-weight:300;
+    line-height:38px;
+    font-size:var(--font-20);
+    color:var(--color-sixtysix);
+    margin-bottom:var(--margin-bottom-40);
+    border-right:4px solid var(--black-color);
+    font-family:var(--font-family-Azarmehr);
+    background-color:rgba(var(--black-color-rgb), 0.05);
+}
+
+.about-page-section blockquote .designation{
+    position:relative;
+    opacity:0.80;
+    display:block;
+    font-size:var(--font-16);
+    color:var(--color-seventy);
+    margin-top:var(--margin-top-15);
+    padding-right:var(--padding-left-50);
+}
+
+.about-page-section blockquote .quote-icon{
+    position:absolute;
+    left:30px;
+    bottom:20px;
+    opacity:0.10;
+    line-height:1em;
+    font-size:var(--font-80);
+    font-family: "Flaticon";
+}
+
+.about-page-section blockquote .designation:before{
+    position:absolute;
+    content:'';
+    right:0;
+    top:20px;
+    width:30px;
+    height:1px;
+    opacity:0.20;
+    background-color:var(--black-color);
+}
+
+.about-page-section .list-one{
+    position:relative;
+}
+
+.about-page-section .list-one li{
+    position:relative;
+    line-height:30px;
+    font-size:var(--font-18);
+    color:var(--color-twelve);
+    padding-right:var(--padding-left-25);
+    margin-bottom:var(--margin-bottom-15);
+    font-family:var(--font-family-Azarmehr);
+}
+
+.about-page-section .list-one li span{
+    position:relative;
+    font-weight:500;
+}
+
+.about-page-section .list-one li:before{
+    position:absolute;
+    content:'';
+    right:0;
+    top:9px;
+    width:10px;
+    height:10px;
+    background-color:var(--black-color);
+}
+
+.about-page-section .list-one li:last-child{
+    margin-bottom:var(--margin-zero);
+}
+
+.about-description-section{
+    margin-top: 50px;
+    margin-bottom:70px;
+}
+
+.about-description-section .description-items{
+    direction:rtl;
+}
+.about-description-section .description-items:last-child{
+    margin-top:30px;
+}
+.about-description-section .description-items h4{
+    direction:rtl;
+    font-family:var(--font-family-Azarmehr);
+    padding: 15px 0;
+}
+
+
+
+/***
+
+====================================================================
+	Services Section Two
+====================================================================
+
+***/
+.services-section-two .icon-layer-one{
+    position:absolute;
+    right:5%;
+    top:5%;
+    width:85px;
+    height:73px;
+    background-repeat:no-repeat;
+}
+
+.services-section-two .icon-layer-two{
+    position:absolute;
+    left:5%;
+    bottom:10%;
+    width:80px;
+    height:75px;
+    background-repeat:no-repeat;
+}
+
+.service-block-four{
+    position:relative;
+    margin-bottom:var(--margin-bottom-30);
+}
+
+.service-block-four .inner-box{
+    position:relative;
+    overflow:hidden;
+    padding:45px 40px;
+    border-radius:10px;
+    background-color:rgb(219 236 229);
+    min-height: 350px;
+    direction:rtl
+}
+
+.service-block-four:nth-child(2) .inner-box{
+    background-color:rgb(209 236 253);
+}
+
+.service-block-four:nth-child(3) .inner-box{
+    background-color:rgb(255 243 234)
+}
+
+.service-block-four .icon{
+    position:relative;
+    line-height:1em;
+    font-family: "Flaticon";
+    font-size:var(--font-60);
+}
+
+.service-block-four .side-icon{
+    position:absolute;
+    left:-20px;
+    bottom:0;
+    opacity:0.20;
+    line-height:1em;
+    font-family: "Flaticon";
+    font-size:var(--font-100);
+}
+
+.service-block-four h4{
+    font-weight:600;
+    margin-top:var(--margin-top-30);
+    font-family:var(--font-family-Azarmehr);
+}
+
+.service-block-four h4 a{
+    position:relative;
+    color:var(--color-thirtyfour);
+}
+
+.service-block-four h4 a:hover{
+    color:var(--main-color);
+}
+
+.service-block-four .text{
+    line-height:28px;
+    font-size: var(--font-18);
+    color:var(--color-thirtyeight);
+    margin-top:var(--margin-top-20);
+    font-family:var(--font-family-Azarmehr);
+    margin-bottom:var(--margin-bottom-30);
+    text-align: justify;
+}
+
+.service-block-four .learn-more{
+    position:relative;
+}
+
+.service-block-four .learn-more{
+    position:relative;
+    padding:16px 32px;
+    border-radius:5px;
+    font-weight:700;
+    display:inline-block;
+    font-size: var(--font-16);
+    color:var(--color-thirtyfour);
+    background-color:var(--white-color);
+    font-family:var(--font-family-Azarmehr);
+}
+
+.service-block-four .inner-box:hover .learn-more{
+    color:var(--white-color);
+    background-color:var(--color-thirtyfive);
+}
+.flaticon-web-search-engine:before {
+    content: "\f1bf";
+}
+.flaticon-law:before {
+    content: "\f17e";
+}
 
 
 
@@ -14008,6 +14237,9 @@
 .swal2-container{
     direction: rtl;
 }
+.swal2-container h2{
+    font-family: var(--font-family-Azarmehr);
+}
 
 /* Bloxic Furniture Business HTML Template */
 
@@ -16015,7 +16247,7 @@ img{
 }
 
 .main-header.header-style-two .main-menu .navigation > li{
-	margin-right:var(--margin-right-20);
+	margin-right:var(--margin-left-20);
 }
 
 .main-header.header-style-two .main-menu .navigation > li > a{
@@ -16678,7 +16910,7 @@ img{
 	padding:22px 0;
 }
 .main-header.fixed-header .sticky-header ul.navigation {
-	direction: ltr;
+	direction: rtl;
 }
 /***
 

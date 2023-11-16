@@ -1,16 +1,8 @@
 @php use \Modules\Theme\Helpers\Helpers; @endphp
-@section('title', ' تارازنیر | تماس با ما')
-
 @section('seo')
-    @php
-        echo Helpers::socialsTagGenerator( 'page' ,(object)[
-            'title'       => 'تماس با ما ',
-            'url'         => url()->current(),
-            'description' => $seo ? $seo->where('key' ,'contact_description') : '' ,
-            'keywords'    => $seo ? $seo->where('key' ,'contact_keywords')    : ''
-        ])
-    @endphp
+    {!! Helpers::seoTagsGenerator( $seo ,'about' ,' تارازنیر | تماس با ما') !!}
 @endsection
+
 
 <div>
     <x-theme::breadcrumbs :main="'تماس با ما'"  />
@@ -77,7 +69,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </div>

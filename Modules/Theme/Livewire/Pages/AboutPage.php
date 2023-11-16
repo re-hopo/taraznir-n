@@ -1,19 +1,23 @@
 <?php
 
-namespace App\Http\Livewire\Pages;
+namespace Modules\Theme\Livewire\Pages;
 
-use App\Models\Option;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Modules\Theme\Helpers\Helpers;
+use Modules\Theme\Models\Option;
 
 class AboutPage extends Component
 {
+
+    #[Layout('theme::layout.app')]
     public function render()
     {
-        $seo = redisHandler( 'about_page_seo' ,function (){
-            return Option::where('key' ,'about_page_seo')->first();
+        $seo = Helpers::redisHandler( 'main_pages_seo' ,function (){
+            return Option::where('key' ,'main_pages_seo')->first();
         });
 
-        return view('pages.about-page' ,[
+        return view('theme::pages.about-page' ,[
             'seo' => $seo
         ]);
     }
