@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('content')->nullable();
             $table->enum('status', ['publish', 'draft'])->default('publish');
             $table->integer('chosen')->nullable()->default(0);
-            $table->bigInteger('featured_image_id')->nullable();
+            $table->bigInteger('author_id')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

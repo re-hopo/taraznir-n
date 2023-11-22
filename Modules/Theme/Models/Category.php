@@ -5,6 +5,7 @@ namespace Modules\Theme\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Modules\Blog\Models\Blog;
 use Modules\Project\Models\Project;
 use Modules\Standard\Models\Standard;
 use Modules\Theme\Helpers\Helpers;
@@ -20,7 +21,7 @@ class Category extends Model implements HasMedia
         'title',
         'slug',
         'description',
-        'cover',
+        'icon',
         'model',
     ];
 
@@ -40,5 +41,10 @@ class Category extends Model implements HasMedia
     public function project(): MorphToMany
     {
         return $this->morphedByMany(Project::class ,'categorizable');
+    }
+
+    public function blog(): MorphToMany
+    {
+        return $this->morphedByMany(Blog::class ,'categorizable');
     }
 }

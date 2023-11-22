@@ -47,7 +47,7 @@ class CategoryResource extends Resource
                     'model' ,'نوع پست'
                 ),
                 self::formDescription(),
-                self::formCover()
+                self::formIcon()
             ]);
     }
 

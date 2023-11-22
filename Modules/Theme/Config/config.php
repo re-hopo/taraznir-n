@@ -12,4 +12,5 @@ return [
         '1,5x'  => '/images/logos/taraznir-logo-1.5x.png',  // 947 * 248
         '2x'    => '/images/logos/taraznir-logo-2x.png',    // 1262 * 330
     ],
+    "recent_limit" => 4
 ];

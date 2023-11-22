@@ -4,9 +4,46 @@
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12 right-sidebar">
+                    <div class="filter-box">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap">
 
-                    @if($items)
-                        @foreach($items as $item)
+                            <div class="right-box d-flex">
+                                <div class="form-group">
+                                    <select wire:model="order_by" wire:change="setQuery">
+                                        <option value="ASC">جدیدترین</option>
+                                        <option value="DESC">قدیمی‌ترین</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mx-2">
+                                    <select wire:model="limit" wire:change="setQuery">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            @if( $this->items && $this->items->isNotEmpty())
+                                @php( $to = $this->items->perPage() * $this->items->currentPage() +  $this->items->perPage())
+                                @php( $from = $to - $this->items->perPage())
+
+                                <div class="left-box d-flex align-items-center">
+                                    <div class="results">
+                                        نمایش
+
+                                        {{$from}}-{{$this->items->lastPage() === $this->items->currentPage() ? $this->items->total() : $to}}
+                                        از
+                                        {{$this->items->total()}}
+                                        نتیجه
+                                    </div>
+                                </div>
+
+                            @endif
+                        </div>
+                    </div>
+
+                    @if( $this->items && $this->items->isNotEmpty())
+                        @foreach($this->items as $item)
                             <div class="news-block-three">
                                 <div class="inner-box">
                                     <div class="image">
@@ -17,24 +54,28 @@
                                             24 <br/> Feb
                                         </div>
                                     </div>
-                                    <div class="lower-content">
+                                    <div class="lower-content" dir="rtl">
                                         <div class="tags">
-                                            <span># Tags</span>
-                                            <a href="#">Links</a>
-                                            <a href="#">Brave</a>
-                                            <a href="#">Brave</a>
+                                            <span># دسته‌بندی‌ها</span>
+                                            @if($item->category)
+                                                @foreach($item->category as $category)
+                                                    <a href="/blog?cat={{$category->slug}}">
+                                                        {{$category->title}}
+                                                    </a>
+                                                @endforeach
+                                            @endif
                                         </div>
                                         <h3>
                                             <a href="/blog/{{$item->slug}}">
                                                 {{$item->title}}
                                             </a>
                                         </h3>
-                                        <ul class="post-meta d-flex align-items-center flex-wrap clearfix">
+                                        <ul class="post-meta d-flex align-items-center flex-wrap clearfix" dir="ltr">
                                             <li>
-                                              <span class="author">
-                                                <img src="images/resource/author-4.jpg" alt=""/>
-                                              </span>
-                                                Alaxandar / <span>4 year</span>
+                                                <span class="author">
+                                                    <img src="{{$item->images['thumbnail'] ?? ''}}" alt="{{$item->title}}"/>
+                                                </span>
+                                              Alaxandar / <span>4 year</span>
                                             </li>
                                             <li>
                                                 <span class="icon flaticon-bubble-chat"></span>3
@@ -50,23 +91,18 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{$this->items->links(data: ['scrollTo' => false])}}
+                    @else
+                        <livewire:theme::layout.not-found :type="'post'" />
                     @endif
-
-                    {{$items->links()}}
-
                 </div>
                 <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 left-sidebar">
                     <aside class="sidebar sticky-top">
                         <div class="sidebar-inner">
 
-                            <livewire:theme::widgets.gallery-widget />
-                            <livewire:theme::widgets.search-widget />
-                            <livewire:theme::widgets.follow-us-widget />
-                            <livewire:theme::widgets.posts-widget />
-                            <livewire:theme::widgets.ads-widget />
-                            <livewire:theme::widgets.news-widget />
-                            <livewire:theme::widgets.category-widget />
-                            <livewire:theme::widgets.tags-widget />
+                            <livewire:theme::widgets.search-widget :model="'Blog'" />
+                            <livewire:theme::widgets.category-widget :model="'Blog'" :items="$this->categories" />
+                            <livewire:theme::widgets.posts-widget :model="'Blog'" :object="$this->object"/>
 
                         </div>
                     </aside>
@@ -74,5 +110,6 @@
             </div>
         </div>
     </div>
+
 
 </div>

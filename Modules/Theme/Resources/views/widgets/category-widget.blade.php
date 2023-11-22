@@ -1,39 +1,31 @@
 <div class="sidebar-widget-two services-widget">
     <div class="sidebar-title-two" dir="rtl">
-        <h5 >Hot Catagories</h5>
+        <h5>دسته‌بندی</h5>
     </div>
     <div class="widget-content">
         <ul class="category-list-two">
-            <li>
-                <a href="#" dir="rtl">
-                    <span class="icon flaticon-megaphone-1" ></span> Marketing
-                    Update <span class="number">34</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" dir="rtl">
-                    <span class="icon flaticon-handshake"></span>Animals &amp;
-                    Birds <span class="number">34</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" dir="rtl">
-                    <span class="icon flaticon-document" ></span> News &amp;
-                    Magazine <span class="number">34</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" dir="rtl">
-                    <span class="icon flaticon-trophy-2" ></span> Live Tv &amp;
-                    Sports <span class="number">34</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" dir="rtl">
-                    <span class="icon flaticon-eye" ></span>Animals &amp; Birds{" "}
-                    <span class="number">34</span>
-                </a>
-            </li>
+            @if($this->items->isNotEmpty())
+                @if($this->categoryID)
+                    <li>
+                        <a wire:click="submit(0)" href="javascript:void(0)" dir="rtl">
+                            <x-icon name="heroicon-s-x-mark" />
+                            حذف فیلتر دسته‌بندی
+                        </a>
+                    </li>
+                @endif
+
+                @foreach($this->items as $item)
+                    <li @class(['active' => $this->categoryID === $item->id ]) >
+                        <a wire:click="submit({{$item->id}})" href="javascript:void(0)" dir="rtl">
+                            @if($item->icon)
+                                <x-icon name="{{ $item->icon }}" />
+                            @endif
+                            {{$item->title}}
+                            <span class="number">{{count($item->{$this->model})}}</span>
+                        </a>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     </div>
 </div>

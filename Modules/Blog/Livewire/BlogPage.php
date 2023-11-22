@@ -2,30 +2,33 @@
 
 namespace Modules\Blog\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use Livewire\WithPagination;
 use Modules\Blog\Models\Blog;
-use Modules\Theme\Helpers\Helpers;
+use Modules\Theme\Trait\CommonLivewireComponentTrait;
 
 class BlogPage extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    use CommonLivewireComponentTrait;
+
+    public string $object = Blog::class;
+    public string $model  = 'blog';
+    public string $config = 'blog.section_limit';
+    public $listeners     = ['setSearching' ,'setCategory'];
+    public $categories;
+
+
+    public function mount(): void
+    {
+        $this->limit      = config($this->config ,10);
+        $this->categories = self::categories();
+    }
 
     #[Layout('theme::layout.app')]
-    public function render()
+    public function render(): View
     {
-        $items =(object) Helpers::redisHandler( 'blogs' ,function (){
-            return
-                Blog::with(['category' ,'meta' ,'media'])
-                    ->activeScope()
-                    ->orderBy('chosen' ,'DESC')
-                    ->paginate(config('blog.section_limit' ,10));
-        });
-
-        return view('blog::blog-page',[
-            'items' => $items
-        ]);
+        $this->renderQuery();
+        return view('blog::blog-page');
     }
 }

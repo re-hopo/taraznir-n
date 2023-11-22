@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use Modules\Theme\Helpers\Helpers;
 use Modules\Theme\Models\Category;
 use Spatie\Image\Exceptions\InvalidManipulation;
@@ -19,7 +20,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 trait CommonModelMethodsTrait {
 
-    use HasFactory ,SoftDeletes ,HasRoles ,InteractsWithMedia;
+    use HasFactory ,SoftDeletes ,HasRoles ,InteractsWithMedia ,Searchable;
 
     protected function slug():Attribute
     {
@@ -49,16 +50,6 @@ trait CommonModelMethodsTrait {
         return $this->morphToMany(Category::class ,'categorizable' );
     }
 
-
-
-    public function toSearchableArray(): array
-    {
-        return [
-            'title'      => $this->title,
-            'summary'    => $this->summary,
-            'content'    => strip_tags( $this->content ),
-        ];
-    }
 
 
     /**

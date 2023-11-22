@@ -22,6 +22,7 @@ use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
+use Guava\FilamentIconPicker\Forms\IconPicker;
 use Modules\Theme\Models\Category;
 
 trait CommonFilamentResource
@@ -158,6 +159,21 @@ trait CommonFilamentResource
                     ->label('تصویر')
             ]);
     }
+
+    public static function formIcon(): Section
+    {
+        return
+            Section::make()->schema([
+                IconPicker::make('icon')
+
+                    ->columns([
+                        'default' => 1,
+                        'lg' => 4,
+                        '2xl' => 5,
+                    ])
+            ])->columnSpan(2);
+    }
+
 
     public static function formAttachment(): Section
     {

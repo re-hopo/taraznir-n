@@ -9,5 +9,6 @@
     "Catalog": true,
     "Service": true,
     "Tutorial": true,
-    "Theme": true
+    "Theme": true,
+    "Ecommerce": true
 }

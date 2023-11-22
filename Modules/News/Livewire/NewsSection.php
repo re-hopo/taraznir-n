@@ -14,7 +14,7 @@ class NewsSection extends Component
             return News::with(['category' ,'meta'])
                 ->activeScope()
                 ->orderBy('chosen' ,'DESC')
-                ->limit(config('news::section_limit' ,3))
+                ->limit(config('news.section_limit' ,3))
                 ->get();
         });
 

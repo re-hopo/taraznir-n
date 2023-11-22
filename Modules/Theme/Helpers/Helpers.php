@@ -154,8 +154,8 @@ class Helpers
         }
     }
 
-
-    public static function redisHandler( string $key ,Closure|null $value ){
+    public static function redisHandler( string $key ,Closure|null $value )
+    {
         return $value();
         $data = unserialize( Redis::get( $key) );
         if ( empty( $data ) ){
@@ -176,6 +176,19 @@ class Helpers
         }
     }
 
+
+    public static function commonRedisQuery( $key ,$model ,$with ,$limit)
+    {
+        return self::redisHandler( $key ,function() use($model ,$with ,$limit)
+        {
+            return
+                $model::with($with)
+                    ->activeScope()
+                    ->orderBy('chosen' ,'DESC')
+                    ->limit($limit)
+                    ->get();
+        });
+    }
 
     public static function returnValueIsTrue( $data ,$index ,$value ,$default = '' )
     {
@@ -245,8 +258,8 @@ class Helpers
             <meta property="twitter:title" content="[title]">
             <meta property="twitter:description" content="[description]">
             <meta property="twitter:image" content="[image]">
-            <meta name="twitter:creator" content="@TalentGarnet" />
-            <meta name="twitter:site" content="@TalentGarnet" />
+            <meta name="twitter:creator" content="@taraznir" />
+            <meta name="twitter:site" content="@taraznir" />
         ';
 
         if($page)
