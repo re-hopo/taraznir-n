@@ -26,11 +26,12 @@ class Blog extends Model implements HasMedia
         'content',
         'status',
         'chosen',
+        'author_id',
     ];
 
-    public function author(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class ,'user_id' ,'id');
+        return $this->belongsTo(User::class);
     }
 
     protected static function newFactory(): BlogFactory

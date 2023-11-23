@@ -70,12 +70,13 @@
                                                 {{$item->title}}
                                             </a>
                                         </h3>
+
                                         <ul class="post-meta d-flex align-items-center flex-wrap clearfix" dir="ltr">
                                             <li>
                                                 <span class="author">
                                                     <img src="{{$item->images['thumbnail'] ?? ''}}" alt="{{$item->title}}"/>
                                                 </span>
-                                              Alaxandar / <span>4 year</span>
+                                              {{$item->author->name}} / <span>4 year</span>
                                             </li>
                                             <li>
                                                 <span class="icon flaticon-bubble-chat"></span>3

@@ -16,6 +16,7 @@ class BlogPage extends Component
     public string $model  = 'blog';
     public string $config = 'blog.section_limit';
     public $listeners     = ['setSearching' ,'setCategory'];
+    protected array $with = ['category' ,'meta' ,'media' ,'user'];
     public $categories;
 
 
@@ -29,6 +30,7 @@ class BlogPage extends Component
     public function render(): View
     {
         $this->renderQuery();
+        dd($this->items->first()->user->getFilamentAvatarUrl());
         return view('blog::blog-page');
     }
 }

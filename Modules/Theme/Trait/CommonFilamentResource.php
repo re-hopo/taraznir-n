@@ -24,6 +24,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Guava\FilamentIconPicker\Forms\IconPicker;
 use Modules\Theme\Models\Category;
+use Modules\User\Models\User;
 
 trait CommonFilamentResource
 {
@@ -224,6 +225,19 @@ trait CommonFilamentResource
                         ->columns()
                         ->defaultItems(0),
             ]);
+    }
+
+
+    public static function formAuthor(): Section
+    {
+        return
+            Section::make()
+                ->schema([
+                    Select::make('author_id')
+                        ->label('نویسنده‌')
+                        ->options(User::all()->pluck('name', 'id'))
+                        ->searchable()
+                ]);
     }
 
 

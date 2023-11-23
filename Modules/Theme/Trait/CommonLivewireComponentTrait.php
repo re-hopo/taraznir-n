@@ -25,7 +25,7 @@ trait CommonLivewireComponentTrait
             $this->items =
                 Helpers::redisHandler( "$this->model-items" ,function (){
                     return
-                        $this->object::with(['category' ,'meta' ,'media'])
+                        $this->object::with($this->with)
                             ->activeScope()
                             ->orderBy('created_at' ,$this->order_by)
                             ->paginate($this->limit);
@@ -60,9 +60,7 @@ trait CommonLivewireComponentTrait
                         ->where('id'    ,$this->category);
                 });
 
-
         $query->orderBy('created_at' ,$this->order_by);
-
         $this->items = $query->paginate($this->limit);
         $this->resetPage();
     }

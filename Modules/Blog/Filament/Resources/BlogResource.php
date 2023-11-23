@@ -51,6 +51,7 @@ class BlogResource extends Resource
                     Grid::make()->schema([
                         self::formStatusAndChosen(),
                         self::formCategory('blog'),
+                        self::formAuthor(),
                     ])->columnSpan(3 ),
                 ]),
             ]);
