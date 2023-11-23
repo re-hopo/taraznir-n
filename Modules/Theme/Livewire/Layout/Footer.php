@@ -15,7 +15,7 @@ class Footer extends Component
 
     public function render(): View
     {
-        $menus =(object) Helpers::redisHandler( 'footers_menu' ,function (){
+        $menus =(object) Helpers::redisHandler( 'theme:footers_menu' ,function (){
             return [
                 'bottom_menu'        => Navigation::fromHandle('bottom-menu'),
                 'footer_first_menu'  => Navigation::fromHandle('footer-first-menu'),
@@ -23,14 +23,14 @@ class Footer extends Component
             ];
         });
 
-        $options = Helpers::redisHandler( 'theme_options' ,function (){
+        $options = Helpers::redisHandler( 'theme:options' ,function (){
             return
                 Option::where('key' ,'theme_options')
                     ->with(['meta' ,'media'])
                     ->first();
         });
 
-        $tutorials = Helpers::redisHandler( 'footers_tutorials' ,function (){
+        $tutorials = Helpers::redisHandler( 'theme:footer_tutorials' ,function (){
             return
                 Tutorial::with(['meta' ,'media' ,'category'])
                     ->activeScope()

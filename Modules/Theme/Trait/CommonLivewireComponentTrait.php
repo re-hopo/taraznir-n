@@ -23,7 +23,7 @@ trait CommonLivewireComponentTrait
     {
         if(!$this->search && !$this->category)
             $this->items =
-                Helpers::redisHandler( "$this->model-items" ,function (){
+                Helpers::redisHandler( $this->model."s" ,function (){
                     return
                         $this->object::with($this->with)
                             ->activeScope()
@@ -35,7 +35,7 @@ trait CommonLivewireComponentTrait
     public function categories()
     {
        return
-           Helpers::redisHandler( "$this->model-categories" ,function (){
+           Helpers::redisHandler( "$this->model:categories" ,function (){
                 return Category::with($this->model)->where('model' ,$this->model)->get();
             });
     }

@@ -19,6 +19,7 @@
         "hekmatinasser/verta": "^8.3",
         "http-interop/http-factory-guzzle": "^1.2",
         "jantinnerezo/livewire-alert": "*",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^10.10",
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.2",
@@ -74,10 +75,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [],
-            "providers": [
-                "Modules\\Blog\\Providers\\BlogPanelProvider"
-            ]
+            "dont-discover": []
         }
     },
     "config": {

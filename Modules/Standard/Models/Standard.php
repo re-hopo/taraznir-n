@@ -13,7 +13,7 @@ class Standard extends Model implements HasMedia
 {
     use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
-    protected $appends = ['jalali_created_at' ,'images'];
+    protected $appends = ['images'];
 
     protected $fillable = [
         'title',

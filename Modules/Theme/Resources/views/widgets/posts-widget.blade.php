@@ -9,7 +9,7 @@
                 <div class="post">
                     <div class="thumb">
                         <div class="post-number">0{{$loop->iteration}}</div>
-                        <a href="{{strtolower($this->model)}}/{{$item->slug}}">
+                        <a href="/{{strtolower($this->model)}}/{{$item->slug}}">
                             <img src="{{$item->images['thumbnail'] ?? ''}}" alt="{{$item->title}}" />
                         </a>
                     </div>
@@ -17,7 +17,7 @@
                         {{$item->category->random()->title}}
                     </div>
                     <h6>
-                        <a href="{{strtolower($this->model)}}/{{$item->slug}}">
+                        <a href="/{{strtolower($this->model)}}/{{$item->slug}}">
                             {{$item->title}}
                         </a>
                     </h6>

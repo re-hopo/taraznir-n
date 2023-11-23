@@ -1,4 +1,9 @@
-<div class="page-wrapper">
+@php use \Modules\Theme\Helpers\Helpers; @endphp
+@section('seo')
+    {!! Helpers::seoTagsGenerator( $seo ,'blog' ,' تارازنیر | مقاله') !!}
+@endsection
+
+<div class="page-wrapper" style="margin-bottom: 100px;">
 
     <div class="sidebar-page-container">
         <div class="auto-container">
@@ -59,7 +64,7 @@
                                             <span># دسته‌بندی‌ها</span>
                                             @if($item->category)
                                                 @foreach($item->category as $category)
-                                                    <a href="/blog?cat={{$category->slug}}">
+                                                    <a href="/blog/category/{{$category->slug}}">
                                                         {{$category->title}}
                                                     </a>
                                                 @endforeach
@@ -74,9 +79,9 @@
                                         <ul class="post-meta d-flex align-items-center flex-wrap clearfix" dir="ltr">
                                             <li>
                                                 <span class="author">
-                                                    <img src="{{$item->images['thumbnail'] ?? ''}}" alt="{{$item->title}}"/>
+                                                    <img src="images/resource/author-4.jpg" alt="{{$item->user->name}}"/>
                                                 </span>
-                                              {{$item->author->name}} / <span>4 year</span>
+                                                {{$item->user->name}}
                                             </li>
                                             <li>
                                                 <span class="icon flaticon-bubble-chat"></span>3

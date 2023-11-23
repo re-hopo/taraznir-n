@@ -26,3 +26,7 @@ Route::get('/contact' , ContactPage::class )
 
 Route::get('/about' , AboutPage::class )
     ->name('about');
+
+
+Route::get('/search' , SearchPage::class )
+    ->name('search');

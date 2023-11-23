@@ -10,7 +10,7 @@ class BlogSection extends Component
 {
     public function render()
     {
-        $blogs =(object) Helpers::redisHandler( 'blog-section' ,function (){
+        $blogs =(object) Helpers::redisHandler( 'blog:section' ,function (){
             return
                 Blog::with(['category' ,'meta' ,'media'])
                     ->activeScope()

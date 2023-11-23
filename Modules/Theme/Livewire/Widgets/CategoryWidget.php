@@ -9,12 +9,14 @@ class CategoryWidget extends Component
 {
     public string $model = '';
     public int|null $categoryID = 0;
+    public bool $isDetailPage = false;
     public $items;
 
-    public function mount($items ,$model): void
+    public function mount($items ,$model ,$isDetailPage = false): void
     {
-        $this->model = strtolower($model);
-        $this->items = $items;
+        $this->model        = strtolower($model);
+        $this->items        = $items;
+        $this->isDetailPage = $isDetailPage;
     }
 
     public function submit($categoryID): void

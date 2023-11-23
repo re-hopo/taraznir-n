@@ -12,12 +12,12 @@ class ProjectSection extends Component
     public function render()
     {
 
-        $items = Helpers::redisHandler( 'project_section_items' ,function (){
+        $items = Helpers::redisHandler( 'project:section_items' ,function (){
             return Project::with(['category' ,'meta'])
                 ->get();
         });
 
-        $cats = Helpers::redisHandler( 'project_section_cats' ,function (){
+        $cats = Helpers::redisHandler( 'project:section_cats' ,function (){
             return Category::with(['project'])
                 ->where('model' ,'project')
                 ->get();

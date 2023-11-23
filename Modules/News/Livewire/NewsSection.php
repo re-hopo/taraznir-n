@@ -10,7 +10,7 @@ class NewsSection extends Component
 {
     public function render()
     {
-        $items = Helpers::redisHandler( 'news_section' ,function (){
+        $items = Helpers::redisHandler( 'news:section' ,function (){
             return News::with(['category' ,'meta'])
                 ->activeScope()
                 ->orderBy('chosen' ,'DESC')

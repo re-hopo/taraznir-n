@@ -30,14 +30,6 @@ trait CommonModelMethodsTrait {
         );
     }
 
-    protected function getJalaliCreatedAtAttribute(): int|string
-    {
-        return Helpers::numberConverter(
-            Helpers::jalaliToGregorianAndConversely( $this->created_at )
-        ,true );
-    }
-
-
 
     public function meta(): MorphMany
     {

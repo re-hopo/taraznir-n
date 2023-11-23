@@ -6,6 +6,7 @@ use Illuminate\View\View;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Modules\Blog\Models\Blog;
+use Modules\Theme\Helpers\Helpers;
 use Modules\Theme\Trait\CommonLivewireComponentTrait;
 
 class BlogPage extends Component
@@ -30,6 +31,8 @@ class BlogPage extends Component
     public function render(): View
     {
         $this->renderQuery();
-        return view('blog::blog-page');
+        return view('blog::blog-page',[
+            'seo' => Helpers::mainPagesSEO()
+        ]);
     }
 }

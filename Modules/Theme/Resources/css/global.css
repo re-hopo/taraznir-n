@@ -404,13 +404,7 @@
 
   /* Fonts */
 
-  --font-family-Outfit: 'Outfit', sans-serif;
   --font-family-Azarmehr: 'Azarmehr', sans-serif;
-  --font-family-Jost: 'Jost', sans-serif;
-  --font-family-Josefin: 'Josefin Sans', sans-serif;
-  --font-family-Inter: 'Inter', sans-serif;
-  --font-family-Roboto: 'Roboto', sans-serif;
-  --font-family-SpaceGrotesk: 'Space Grotesk', sans-serif;
 
 /* Fonts Size's */
 
@@ -746,9 +740,9 @@ a:hover,a:focus,a:visited{
 
 h1,h2,h3,h4,h5,h6 {
 	position:relative;
-	margin:0px;
+	margin:0;
 	background:none;
-	font-family: var(--font-family-Outfit);
+	font-family: var(--font-family-Azarmehr);
 }
 
 input,button,select,textarea{
@@ -773,7 +767,7 @@ p{
 	line-height:32px;
 	font-size:var(--font-16);
 	color:var(--color-two);
-	font-family: var(--font-family-Outfit);
+	font-family: var(--font-family-Azarmehr);
 }
 
 /* Typography */
@@ -1136,7 +1130,7 @@ img{
 	color:var(--color-fiftyfour);
 	padding: 0px 0px;
 	border:0px;
-	font-family:var(--font-family-Outfit);
+	font-family:var(--font-family-Azarmehr);
     background-color: var(--white-color);
 }
 

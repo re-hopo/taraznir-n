@@ -14,11 +14,11 @@ use Modules\Theme\Models\Option;
 class Helpers
 {
 
-    public static function clearingHtml( $content ,$type ) :string
+    public static function clearingHtml( string $content ,int $type ): string
     {
-        if ( $type == 0 ){
+        if(!$type)
             return html_entity_decode( strip_tags( $content ) );
-        }
+
         return $content;
     }
 
@@ -76,23 +76,25 @@ class Helpers
 
         $dateOrDateTime = trim( $dateOrDateTime );
         $dateOrDateTime = explode( ' ', $dateOrDateTime );
-        if (!empty( $dateOrDateTime ) && $dateOrDateTime[0] > 0 ) {
-            $date = self::indexChecker( $dateOrDateTime , 0 );
-            $time = self::indexChecker( $dateOrDateTime , 1 );
-            $time = empty( $time ) ? $time : verta()->formatTime();
+        try{
+            if (!empty( $dateOrDateTime ) && $dateOrDateTime[0] > 0 ) {
+                $date = self::indexChecker( $dateOrDateTime , 0 );
+                $time = self::indexChecker( $dateOrDateTime , 1 );
+                $time = $time ?: verta()->formatTime();
 
-            if( str_starts_with( $date ,'20') ){
-                return Verta::instance($date .' '.$time )->format( $format );
-            }
+                if( str_starts_with( $date ,'20') ){
+                    return Verta::instance($date .' '.$time )->format( $format );
+                }
 
-            $date = explode( $separator , $date );
-            if( count( $date ) === 3 ){
-                $jalali = Verta::jalaliToGregorian( $date[0] ,$date[1] ,$date[2]);
-                return trim(
-                    date_create(implode('-' ,$jalali).' '.$time )->format( $format )
-                );
+                $date = explode( $separator ,$date );
+                if( count( $date ) === 3 && strlen($date[0]) == 4 && strlen($date[1]) == 2 && strlen($date[2]) == 2 ){
+                    $jalali = Verta::jalaliToGregorian( (int)$date[0] ,(int)$date[1] ,(int)$date[2]);
+                    return trim(
+                        date_create(implode('-' ,$jalali).' '.$time )->format( $format )
+                    );
+                }
             }
-        }
+        }catch ( Exception $e){}
         return false;
     }
 
@@ -177,7 +179,7 @@ class Helpers
     }
 
 
-    public static function commonRedisQuery( $key ,$model ,$with ,$limit)
+    public static function commonRedisGetQuery( $key ,$model ,$with ,$limit)
     {
         return self::redisHandler( $key ,function() use($model ,$with ,$limit)
         {
@@ -187,6 +189,18 @@ class Helpers
                     ->orderBy('chosen' ,'DESC')
                     ->limit($limit)
                     ->get();
+        });
+    }
+
+    public static function commonRedisFirstQuery( $key ,$model ,$with ,$where)
+    {
+        return self::redisHandler( $key ,function() use($model ,$with ,$where)
+        {
+            return
+                $model::with($with)
+                    ->where(...$where)
+                    ->activeScope()
+                    ->first();
         });
     }
 
@@ -233,15 +247,15 @@ class Helpers
 
     public static function mainPagesSEO()
     {
-        return Helpers::redisHandler( 'main_pages_seo' ,function (){
-            return Option::where('key' ,'main_pages_seo')->get();
+        return Helpers::redisHandler( 'theme:pages_seo' ,function (){
+            return Option::where('key' ,'main_pages_seo')->first();
         });
     }
 
     public static function seoTagsGenerator( $seo ,$page ,$title ,$detailPage = null) :string
     {
-        $d = $detailPage ? self::getMetaValueByKey($seo ,"meta_description" ) : '';
-        $k = $detailPage ? self::getMetaValueByKey($seo ,"meta_keywords" )    : '';
+        $d = $detailPage ? self::getMetaValueByKey($seo ,"description" ) : '';
+        $k = $detailPage ? self::getMetaValueByKey($seo ,"keywords" )    : '';
 
         $tags = '
             <title>[title]</title>
@@ -269,6 +283,7 @@ class Helpers
 
         if( !$d && $page && $seo){
             $d = self::getMetaValueByKey($seo ,"{$page}_description" );
+
             if(!$d)
                 $d = self::getMetaValueByKey($seo ,"default_description" );
         }
@@ -286,5 +301,7 @@ class Helpers
         $tags  = str_replace( '[description]' ,$d ,$tags );
         return   str_replace( '[keywords]'    ,$k ,$tags );
     }
+
+
 
 }

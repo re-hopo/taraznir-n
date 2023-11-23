@@ -11,7 +11,7 @@ class StandardSection extends Component
 
     public function render()
     {
-        $items = Helpers::redisHandler( 'standard_section' ,function (){
+        $items = Helpers::redisHandler( 'standard:section' ,function (){
             return
                 Standard::with(['category' ,'meta' ,'media'])
                     ->activeScope()

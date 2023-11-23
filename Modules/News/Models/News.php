@@ -12,7 +12,7 @@ class News extends Model implements HasMedia
 {
     use CommonScopesTrait ,CommonModelMethodsTrait;
 
-    protected $appends = ['jalali_created_at' ,'images'];
+    protected $appends = ['images'];
 
     protected $fillable = [
         'title',

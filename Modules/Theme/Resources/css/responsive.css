@@ -1142,7 +1142,9 @@
 	.sidebar-textwidget{
 		padding:40px 20px;
 	}
-
+    .blog-detail .lower-content .blog-extra-details{
+        justify-content:center;
+    }
 
 }
 

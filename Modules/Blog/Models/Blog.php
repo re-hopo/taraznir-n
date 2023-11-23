@@ -4,8 +4,10 @@ namespace Modules\Blog\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
 use Modules\Blog\Database\factories\BlogFactory;
+use Modules\Theme\Models\Comment;
 use Modules\Theme\Trait\CommonModelMethodsTrait;
 use Modules\Theme\Trait\CommonScopesTrait;
 use Modules\User\Models\User;
@@ -17,7 +19,7 @@ class Blog extends Model implements HasMedia
 
     use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles ,Searchable;
 
-    protected $appends = ['jalali_created_at' ,'images'];
+    protected $appends = ['images'];
 
     protected $fillable = [
         'title',
@@ -32,6 +34,11 @@ class Blog extends Model implements HasMedia
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class)->whereNull('parent_id');
     }
 
     protected static function newFactory(): BlogFactory

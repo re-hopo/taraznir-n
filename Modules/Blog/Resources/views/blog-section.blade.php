@@ -24,7 +24,7 @@
                             <div class="inner-box d-flex justify-content-between">
                                 <div class="content">
                                     <ul class="post-info">
-                                        <li>{{$item->jalali_created_at}}</li>
+                                        <li>{{Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'d F, Y')}}</li>
                                         <li>{{$item->category->first()?->title}}</li>
                                     </ul>
                                     <h6>
@@ -57,7 +57,7 @@
                                     <div class="lower-content">
                                         <ul class="post-info">
                                             <li>{{$item->category->first()?->title}}</li>
-                                            <li>{{$item->jalali_created_at}}</li>
+                                            <li>{{Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'d F, Y')}}</li>
                                         </ul>
                                         <h5>
                                             <a href="/blog/{{$item->slug}}">

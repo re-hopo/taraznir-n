@@ -22,7 +22,7 @@ class PostsWidget extends Component
     public function render(): View
     {
 
-        $this->items = Helpers::commonRedisQuery(
+        $this->items = Helpers::commonRedisGetQuery(
             strtolower($this->model)."recent",
             $this->object,
             ['category' ,'meta' ,'media'],

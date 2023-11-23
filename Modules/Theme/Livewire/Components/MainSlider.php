@@ -10,7 +10,7 @@ class MainSlider extends Component
 {
     public function render()
     {
-        $items = Helpers::redisHandler( 'main_slider' ,function (){
+        $items = Helpers::redisHandler( 'theme:slider' ,function (){
             return
                 Option::with(['category' ,'meta' ,'media'])
                     ->whereHas('category' ,function ($query){

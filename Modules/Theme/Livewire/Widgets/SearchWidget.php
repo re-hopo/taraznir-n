@@ -10,10 +10,12 @@ class SearchWidget extends Component
 {
     public ?string $model   = '';
     public ?string $keyword = '';
+    public bool $isDetailPage = false;
 
-    public function mount($model = ''): void
+    public function mount($model = '' ,$isDetailPage = false): void
     {
-        $this->model = $model;
+        $this->model        = $model;
+        $this->isDetailPage = $isDetailPage;
     }
 
     public function clearFilter(): void
@@ -25,6 +27,11 @@ class SearchWidget extends Component
     public function submit(): void
     {
         $this->keyword = trim($this->keyword);
+        if( $this->isDetailPage )
+            $this->redirectRoute("search" ,[
+                'keyword' => $this->keyword,
+                'model'   => $this->model,
+            ]);
         $this->dispatch('setSearching' ,$this->keyword );
     }
 

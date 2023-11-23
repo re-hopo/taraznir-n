@@ -30,7 +30,7 @@
                             <div class="lower-content">
                                 <div class="info">
                                     توسط: <span> {{\Modules\Theme\Helpers\Helpers::getMetaValueByKey($item ,'author')}} </span>
-                                    <b>{{$item->jalali_created_at}}</b>
+                                    <b>{{Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'d F, Y')}}</b>
                                 </div>
                                 <h6>
                                     <a href="news/{{$item->slug}}">
