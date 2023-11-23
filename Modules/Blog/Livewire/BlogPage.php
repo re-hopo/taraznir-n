@@ -30,7 +30,6 @@ class BlogPage extends Component
     public function render(): View
     {
         $this->renderQuery();
-        dd($this->items->first()->user->getFilamentAvatarUrl());
         return view('blog::blog-page');
     }
 }
