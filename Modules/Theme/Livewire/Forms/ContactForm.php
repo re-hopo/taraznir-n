@@ -12,27 +12,24 @@ use Livewire\Component;
 use Modules\Theme\Models\FormEntry;
 use Modules\Theme\Models\FormEntryMeta;
 
-class ContactForm extends Component implements HasForms
+class ContactForm extends Component
 {
-    use InteractsWithForms;
     use LivewireAlert;
 
     public string|null
         $name,
         $email,
-        $phone,
+        $mobile,
         $subject,
-        $text,
         $message;
 
     protected array $rules = [
         'name'      => 'nullable|max:30',
         'email'     => 'required|email',
         'subject'   => 'nullable|max:100',
-        'text'      => 'required|min:15',
-        'phone'     => 'nullable',
+        'message'   => 'required|min:15',
+        'mobile'    => 'nullable',
     ];
-
 
     public function submit(): void
     {

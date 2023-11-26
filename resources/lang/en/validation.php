@@ -188,7 +188,8 @@ return [
         'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه رمز عبور',
         'text' => 'متن',
-        'subject' => 'عنوان'
+        'subject' => 'عنوان',
+        'message' => 'متن'
     ],
 
 ];

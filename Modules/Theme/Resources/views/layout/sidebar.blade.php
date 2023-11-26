@@ -10,8 +10,8 @@
                 <div class="sidebar-info-contents">
                     <div class="content-inner">
                         <div class="logo">
-                            <a href="index.html">
-                                <img src="images/logo.png" alt="" title="">
+                            <a href="/">
+                                <img src="/images/logo.png" alt="" title="">
                             </a>
                         </div>
                         <div class="content-box">

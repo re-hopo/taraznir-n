@@ -8695,8 +8695,8 @@ footer .post-widget .post .thumb:before{
 }
 
 .blog-detail h2{
-    color: #ffc30c;
-    margin: 16px 0;
+    color: #000000;
+    margin: 60px 0;
 }
 
 .blog-detail h3{
@@ -9184,6 +9184,10 @@ footer .post-widget .post .thumb:before{
 	transition:all 300ms ease;
 }
 
+.sidebar-page-container .comments-area h4 span{
+    font-size:14px;
+}
+
 .sidebar-page-container .comments-area .comment-box:last-child{
 	margin-bottom:var(--margin-zero);
 }
@@ -9197,7 +9201,15 @@ footer .post-widget .post .thumb:before{
 }
 
 .sidebar-page-container .comments-area .reply-comment{
-	margin-right:var(--margin-left-100);
+	margin-right:var(--margin-left-50);
+}
+
+.sidebar-page-container .comments-area .reply-comment-2{
+    margin-right:var(--margin-left-100);
+}
+
+.sidebar-page-container .comments-area .reply-comment-3{
+    margin-right:150px;
 }
 
 .sidebar-page-container .comments-area .comment-box .author-thumb{
@@ -9279,6 +9291,13 @@ footer .post-widget .post .thumb:before{
 
 .comment-form .form-group:last-child{
 	margin-bottom:0;
+}
+
+.comment-form .form-group strong{
+    font-family: 'AzarMehr';
+    color: #e46969;
+    margin-top: 14px;
+    display: block;
 }
 
 .comment-form .form-group input[type="text"],
@@ -37416,15 +37435,23 @@ ul {
 	}
 
 	.sidebar-page-container .comments-area .reply-comment{
-		margin-left:var(--margin-zero);
+		margin-right:var(--margin-right-30);
 	}
+
+    .sidebar-page-container .comments-area .reply-comment-2{
+        margin-right:var(--margin-right-60);
+    }
+
+    .sidebar-page-container .comments-area .reply-comment-3{
+        margin-right:var(--margin-right-90);
+    }
 
 	.sidebar-page-container .comments-area .comment-box .text br{
 		display:none;
 	}
 
 	.sidebar-page-container .comments-area .comment{
-		padding-left:var(--padding-zero);
+		padding-right:var(--padding-zero);
 	}
 
 	.sidebar-page-container .comments-area .comment-box .author-thumb{
@@ -37433,7 +37460,7 @@ ul {
 	}
 
 	.sidebar-page-container .comments-area .comment-box .reply-btn{
-		right:0px;
+		left:20px;
 	}
 
 	.main-slider .content-box .box-inner{

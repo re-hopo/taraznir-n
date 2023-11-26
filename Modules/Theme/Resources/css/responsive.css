@@ -817,15 +817,23 @@
 	}
 
 	.sidebar-page-container .comments-area .reply-comment{
-		margin-left:var(--margin-zero);
+		margin-right:var(--margin-right-30);
 	}
+
+    .sidebar-page-container .comments-area .reply-comment-2{
+        margin-right:var(--margin-right-60);
+    }
+
+    .sidebar-page-container .comments-area .reply-comment-3{
+        margin-right:var(--margin-right-90);
+    }
 
 	.sidebar-page-container .comments-area .comment-box .text br{
 		display:none;
 	}
 
 	.sidebar-page-container .comments-area .comment{
-		padding-left:var(--padding-zero);
+		padding-right:var(--padding-zero);
 	}
 
 	.sidebar-page-container .comments-area .comment-box .author-thumb{
@@ -834,7 +842,7 @@
 	}
 
 	.sidebar-page-container .comments-area .comment-box .reply-btn{
-		right:0px;
+		left:20px;
 	}
 
 	.main-slider .content-box .box-inner{

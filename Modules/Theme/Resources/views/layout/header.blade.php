@@ -221,8 +221,8 @@
         <div class="menu-backdrop"></div>
         <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html">
-                    <img src="images/mobile-logo.png" alt="" title=""></a>
+            <div class="nav-logo"><a href="/">
+                    <img src="/images/mobile-logo.png" alt="" title=""></a>
             </div>
             <!-- Search -->
             <div class="search-box">

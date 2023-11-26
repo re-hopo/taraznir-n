@@ -9178,6 +9178,10 @@ footer .post-widget .post .thumb:before{
 	transition:all 300ms ease;
 }
 
+.sidebar-page-container .comments-area h4 span{
+    font-size:14px;
+}
+
 .sidebar-page-container .comments-area .comment-box:last-child{
 	margin-bottom:var(--margin-zero);
 }
@@ -9191,7 +9195,15 @@ footer .post-widget .post .thumb:before{
 }
 
 .sidebar-page-container .comments-area .reply-comment{
-	margin-right:var(--margin-left-100);
+	margin-right:var(--margin-left-50);
+}
+
+.sidebar-page-container .comments-area .reply-comment-2{
+    margin-right:var(--margin-left-100);
+}
+
+.sidebar-page-container .comments-area .reply-comment-3{
+    margin-right:150px;
 }
 
 .sidebar-page-container .comments-area .comment-box .author-thumb{
@@ -9273,6 +9285,13 @@ footer .post-widget .post .thumb:before{
 
 .comment-form .form-group:last-child{
 	margin-bottom:0;
+}
+
+.comment-form .form-group strong{
+    font-family: 'AzarMehr';
+    color: #e46969;
+    margin-top: 6px;
+    display: block;
 }
 
 .comment-form .form-group input[type="text"],
