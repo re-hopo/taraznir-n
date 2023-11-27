@@ -1,17 +1,24 @@
-<div class="comment-box reply-comment">
+@php use \Modules\Theme\Helpers\Helpers; @endphp
+@props([
+    'comment' => '',
+    'depth'   => 0
+])
+
+
+<div class="comment-box depth-{{$depth}}">
     <div class="comment">
         <div class="author-thumb">
-            <img src="/images/resource/author-7.jpg" alt="">
+            <img src="{{$comment->user->getAvatarAttribute()}}" alt="{{$comment->user->name}}">
         </div>
         <div class="comment-info clearfix">
-            <strong>Johan Ritaxon</strong>
-            <div class="comment-time">25 january 2021</div>
+            <strong>{{$comment->user->name}}</strong>
+            <div class="comment-time">{{Helpers::jalaliToGregorianAndConversely($comment->created_at ,format:'d F Y' )}}</div>
         </div>
         <div class="text">
-
+            {{$comment->body}}
         </div>
         <a
-            wire:click="$dispatch('set-parent-id' ,{parentID: 10})"
+            wire:click="$dispatch('set-parent-id' ,{parentID:{{$comment->id}}})"
             class="reply-btn flaticon-reply-all"
             href="javascript:void(0)"
         ></a>

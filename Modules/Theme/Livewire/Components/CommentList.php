@@ -10,9 +10,13 @@ class CommentList extends Component
 {
     public $items;
 
+    protected $listeners = [
+        '$refresh'
+    ];
+
     public function render(): View
     {
-        $this->items = Comment::with('children')
+        $this->items = Comment::with(['children' ,'user'])
             ->where('parent_id' ,0 )
             ->get();
 

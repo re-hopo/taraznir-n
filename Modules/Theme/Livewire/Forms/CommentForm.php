@@ -5,6 +5,7 @@ namespace Modules\Theme\Livewire\Forms;
 use Illuminate\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use Modules\Theme\Livewire\Components\CommentList;
 use Modules\Theme\Models\Comment;
 use Modules\Theme\Trait\CommonAlert;
 
@@ -45,6 +46,18 @@ class CommentForm extends Component
         $this->parent_id = $parentID;
     }
 
+    public function getParentName()
+    {
+        return Comment::find($this->parent_id)
+            ->user
+            ?->name;
+    }
+
+    public function cancelReply(): void
+    {
+         $this->parent_id = 0;
+    }
+
     public function submit(): string
     {
 
@@ -61,6 +74,8 @@ class CommentForm extends Component
         if( $status ){
             $this->parent_id = 0;
             $this->message   = '';
+
+            $this->dispatch('$refresh')->to(CommentList::class);
             return $this->topRightToast(
                 __('theme::theme.alert.successfully_stored')
             );

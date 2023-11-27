@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use Laravolt\Avatar\Facade as Avatar;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -63,6 +65,13 @@ class User extends Authenticatable
     {
         return $this->profile_photo_path;
     }
+
+
+    public function getAvatarAttribute()
+    {
+        return Avatar::create(Str::title($this->email))->toBase64();
+    }
+
 
     public function meta(): MorphMany
     {

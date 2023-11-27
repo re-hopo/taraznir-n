@@ -1,12 +1,13 @@
 @props([
-    'comments' => ''
+    'comments' => '',
+    'depth'    => 0
 ])
 
 @if( is_array($comments) || is_object($comments))
     @foreach($comments as $comment)
-        <x-theme::comment-item :comments="$comment" />
+        <x-theme::comment-item :comment="$comment" :depth="$depth"/>
         @if($comment->children->count() > 0)
-            <x-theme::comment-index :comments="$comment->children" />
+            <x-theme::comment-index :comments="$comment->children" :depth="$depth+1" />
         @endif
     @endforeach
 @endif

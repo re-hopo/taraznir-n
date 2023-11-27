@@ -1,6 +1,12 @@
 <?php
 
 return [
+    'comment' => [
+        'title' => 'فرم ارسال نظر',
+        'comments' => 'نظرات',
+        'send_to' => 'ارسال نظر به',
+        'cancel_to' => 'لغو پاسخ',
+    ],
     'alert' => [
         'successfully_created' => 'با موفقیت ایجاد شد.',
         'successfully_stored'  => 'با موفقیت ذخیره شد.',

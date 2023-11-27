@@ -9196,28 +9196,39 @@ footer .post-widget .post .thumb:before{
 	position:relative;
 	min-height:120px;
 	font-size:var(--font-14);
-	padding:0 100px 0 0;
+	padding:0 75px 0 0;
 	direction: rtl;
 }
 
-.sidebar-page-container .comments-area .reply-comment{
+.sidebar-page-container .comments-area .depth-1{
 	margin-right:var(--margin-left-50);
 }
 
-.sidebar-page-container .comments-area .reply-comment-2{
+.sidebar-page-container .comments-area .depth-2{
     margin-right:var(--margin-left-100);
 }
 
-.sidebar-page-container .comments-area .reply-comment-3{
-    margin-right:150px;
+.sidebar-page-container .comments-area .depth-3{
+    margin-right:120px;
+}
+.sidebar-page-container .comments-area .depth-4{
+    margin-right:140px;
+}
+
+.sidebar-page-container .comments-area .depth-5{
+    margin-right:160px;
+}
+
+.sidebar-page-container .comments-area .depth-6{
+    margin-right:180px;
 }
 
 .sidebar-page-container .comments-area .comment-box .author-thumb{
 	position:absolute;
 	right:0;
 	top:0;
-	width:80px;
-	height:80px;
+	width:65px;
+	height:65px;
 	overflow:hidden;
 	border-radius:50%;
 	margin-bottom:var(--margin-bottom-20);
@@ -9296,7 +9307,7 @@ footer .post-widget .post .thumb:before{
 .comment-form .form-group strong{
     font-family: 'AzarMehr';
     color: #e46969;
-    margin-top: 14px;
+    margin-top: 6px;
     display: block;
 }
 
@@ -9459,6 +9470,22 @@ footer .post-widget .post .thumb:before{
 	text-transform:uppercase;
 }
 
+.comment-form .reply-to{
+    display: flex;
+    direction: rtl;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.comment-form .reply-to p{
+    margin:0;
+}
+
+.comment-form .reply-to a{
+    color: rgb(252 15 63);
+    font-family: var(--font-family-Azarmehr);
+}
 /* Video Box */
 
 .video-box{
