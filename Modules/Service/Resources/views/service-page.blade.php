@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section class="service-page-section mb-5">
+    <section class="service-detail-section">
         <div class="auto-container" style="max-width: 1200px">
             <div class="row clearfix">
                 @if($items)

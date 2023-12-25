@@ -5,6 +5,7 @@ namespace Modules\Blog\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Laravel\Scout\Searchable;
 use Modules\Blog\Database\factories\BlogFactory;
 use Modules\Theme\Models\Comment;
@@ -31,14 +32,10 @@ class Blog extends Model implements HasMedia
         'author_id',
     ];
 
-    public function user(): BelongsTo
+    public function comment(): MorphMany
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class)->whereNull('parent_id');
+        return $this->morphMany(Comment::class ,'commentable')
+            ->whereRaw('parent_id = 0 OR parent_id IS NULL');
     }
 
     protected static function newFactory(): BlogFactory

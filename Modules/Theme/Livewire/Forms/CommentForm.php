@@ -89,6 +89,6 @@ class CommentForm extends Component
 
     public function render(): View
     {
-        return view('theme::forms.comment-form');
+        return view('theme::components.comment.comment-form');
     }
 }

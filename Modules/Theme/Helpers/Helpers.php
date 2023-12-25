@@ -158,6 +158,7 @@ class Helpers
 
     public static function redisHandler( string $key ,Closure|null $value )
     {
+        return $value();
         $data = unserialize( Redis::get( $key) );
         if ( empty( $data ) ){
             Redis::set( $key ,serialize( $value() ) );

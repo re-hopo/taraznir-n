@@ -13,4 +13,13 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Modules\Project\Livewire\ProjectDetail;
+use Modules\Project\Livewire\ProjectPage;
 
+
+Route::get('/project' , ProjectPage::class)
+    ->name('project');
+
+
+Route::get('project/{slug}' , ProjectDetail::class)
+    ->name('project-detail');

@@ -8631,6 +8631,10 @@ footer .post-widget .post .thumb:before{
 	padding-top:var(--padding-top-25);
 }
 
+.blog-detail .lower-content .text *{
+    font-family: var(--font-family-Azarmehr)!important;
+}
+
 .blog-detail .lower-content .blog-extra-details{
     display: flex;
     justify-content: space-between;
@@ -9150,6 +9154,35 @@ footer .post-widget .post .thumb:before{
 /***
 
 ====================================================================
+	Project Detail
+====================================================================
+
+ ***/
+
+.project-detail .social-box{
+    display: flex;
+}
+.project-detail img{
+    max-height: 630px;
+    object-fit: cover;
+}
+
+.project-detail .image:after{
+    content:'';
+    background-image: linear-gradient(to right top, #5a5a5a, #555555, #515151, #4c4c4c, #484848);
+    position:absolute;
+    opacity:0.5;
+    width:100%;
+    height:100%;
+    top:0;
+    z-index:9
+}
+.project-detail .detail-content{
+    direction: rtl;
+}
+/***
+
+====================================================================
 	Comments Area
 ====================================================================
 
@@ -9176,7 +9209,7 @@ footer .post-widget .post .thumb:before{
 
 .sidebar-page-container .comments-area .comment-box{
 	position:relative;
-	margin-bottom:var(--margin-bottom-40);
+	margin-bottom:var(--margin-bottom-15);
 	-webkit-transition:all 300ms ease;
 	-ms-transition:all 300ms ease;
 	-o-transition:all 300ms ease;
@@ -9486,6 +9519,8 @@ footer .post-widget .post .thumb:before{
     color: rgb(252 15 63);
     font-family: var(--font-family-Azarmehr);
 }
+
+
 /* Video Box */
 
 .video-box{
@@ -12909,11 +12944,12 @@ footer .post-widget .post .thumb:before{
 .portfolio-detail-section .overlay-box{
 	position:absolute;
 	right:40px;
+    z-index: 33;
 }
 
 .portfolio-detail-section .overlay-box .content{
 	position:relative;
-	padding:60px 50px 30px;
+	padding:60px 70px 30px;
 	max-width:440px;
 	width:100%;
 	border-radius:20px;
@@ -12923,16 +12959,18 @@ footer .post-widget .post .thumb:before{
 
 .portfolio-detail-section .overlay-box ul{
 	position:relative;
+    direction: rtl;
 }
 
-.portfolio-detail-section .overlay-box ul li{
+.portfolio-detail-section .overlay-box .content ul li{
 	position:relative;
 	font-size:var(--font-16);
 	color:var(--color-six);
-	margin-bottom:var(--margin-bottom-25);
     font-family: var(--font-family-Azarmehr);
 }
-
+.portfolio-detail-section .overlay-box .content>ul>li{
+    margin-bottom:var(--margin-bottom-25);
+}
 .portfolio-detail-section .overlay-box ul li span{
 	position:relative;
 	font-weight:600;
@@ -12962,6 +13000,7 @@ footer .post-widget .post .thumb:before{
 	margin-top:var(--margin-top-50);
 	margin-bottom:var(--margin-bottom-25);
 	font-family:var(--font-family-Azarmehr);
+    direction: rtl;
 }
 
 .portfolio-detail-section h4{

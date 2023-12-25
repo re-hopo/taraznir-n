@@ -15,8 +15,8 @@ class BlogDetail extends Component
 {
     use CommonLivewireComponentTrait;
 
-    public string $object = Blog::class;
-    public string $model  = 'blog';
+    public string $object   = Blog::class;
+    public string $model    = 'blog';
     protected $share = '';
     public $item ,$categories ,$options ,$next ,$previous;
     public function mount($slug): void
@@ -24,7 +24,7 @@ class BlogDetail extends Component
         $this->item = Helpers::commonRedisFirstQuery(
             "blog:$slug",
            $this->object,
-           ['category' ,'meta' ,'media'],
+           ['category' ,'meta' ,'media' ,'comment'],
            ['slug' ,$slug]
         );
 

@@ -40,15 +40,20 @@
                                     </span>
                                         {{$item->user->name}}
                                     </li>
+                                    @if($item->comment->count())
+                                        <li>
+                                            <span class="icon flaticon-bubble-chat"></span>
+                                            {{$item->comment->count()}}
+                                        </li>
+                                    @endif
                                     <li>
-                                        <span class="icon flaticon-bubble-chat"></span>3
-                                    </li>
-                                    <li>
-                                        <span class="icon flaticon-clock"></span>3 min Read
+                                        <span class="icon flaticon-clock"></span>
+                                        {{Helpers::getMetaValueByKey($item->meta ,'read_time' ,5)}}
+                                        دقیقه
                                     </li>
                                 </ul>
                             </div>
-                            <div class="text">
+                            <div class="text" style="margin-bottom: 160px">
                                 {!!$item->content!!}
                             </div>
 

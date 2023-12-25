@@ -22,6 +22,7 @@ class ResourcesList implements Plugin
         return 'option';
     }
 
+
     public function register(Panel $panel): void
     {
         $panel

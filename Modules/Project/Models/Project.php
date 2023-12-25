@@ -3,9 +3,11 @@
 namespace Modules\Project\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Project\Database\factories\ProjectFactory;
 use Modules\Theme\Trait\CommonModelMethodsTrait;
 use Modules\Theme\Trait\CommonScopesTrait;
+use Modules\User\Models\User;
 use Spatie\MediaLibrary\HasMedia;
 
 class Project extends Model implements HasMedia
@@ -24,6 +26,7 @@ class Project extends Model implements HasMedia
         'status',
         'chosen',
     ];
+
 
     protected static function newFactory(): ProjectFactory
     {

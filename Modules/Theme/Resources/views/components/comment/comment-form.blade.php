@@ -4,7 +4,7 @@
         @if($this->parent_id)
             <div class="reply-to">
                 <p>
-                    @lang('theme::theme.comment.send_to') : <span>@</span>{{$this->getParentName()}}
+                    @lang('theme::theme.comment.send_to') : {{$this->getParentName()}}@
                 </p>
                 <a wire:click="cancelReply()" href="javascript:void(0)">
                     @lang('theme::theme.comment.cancel_to')

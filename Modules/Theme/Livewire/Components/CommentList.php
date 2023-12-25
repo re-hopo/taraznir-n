@@ -20,6 +20,6 @@ class CommentList extends Component
             ->where('parent_id' ,0 )
             ->get();
 
-        return view('theme::components.comment-list');
+        return view('theme::components.comment.comment-list');
     }
 }
