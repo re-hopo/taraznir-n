@@ -11,3 +11,11 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+use Modules\Standard\Livewire\StandardPage;
+
+Route::get('/standard' , StandardPage::class)
+    ->name('standard');
+
+Route::get('standard/{slug}' , StandardDetail::class)
+    ->name('standard-detail');

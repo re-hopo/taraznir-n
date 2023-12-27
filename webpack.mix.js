@@ -54,6 +54,15 @@ mix
         __dirname + '/Modules/Theme/Resources/js/script.js',
     ], 'public/js/scripts.min.js')
 
+
+    .styles([
+        __dirname + '/Modules/Standard/Resources/assets/standard.css',
+    ], 'public/css/modules.min.css')
+
+    .scripts([
+        __dirname + '/Modules/Standard/Resources/assets/standard.js',
+    ], 'public/js/modules.min.js')
+
 if (mix.inProduction()) {
     mix.version();
 }

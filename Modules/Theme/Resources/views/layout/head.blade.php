@@ -4,5 +4,6 @@
     @yield('seo')
 
     <link rel="stylesheet" href="/css/styles.min.css">
+    <link rel="stylesheet" href="/css/modules.min.css">
     @livewireStyles
 </head>

@@ -1,0 +1,50 @@
+/***
+
+==================================================================
+	Browse Section
+==================================================================
+
+***/
+
+.browse-section{
+    position:relative;
+    padding:0 0 60px;
+}
+
+.browse-section .filters{
+    position:relative;
+    text-align:center;
+    margin-bottom:var(--margin-bottom-35);
+}
+
+.browse-section .filters li{
+    position: relative;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 26px;
+    border-radius: 4px;
+    margin: 0 10px 15px;
+    display: inline-block;
+    color: rgb(85 86 95);
+    font-size: var(--font-14);
+    text-transform: capitalize;
+    background-color: #f8f9fc;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+    font-family: var(--font-family-Azarmehr);
+    border: 1px solid rgba(var(--black-color-rgb), 0.06);
+}
+
+.browse-section .filters li.active,
+.browse-section .filters li:hover{
+    color:var(--white-color);
+    border-color:var(--black-color);
+    background-color:var(--black-color);
+}
+
+.drop-block.mix{
+    display:none;
+}
