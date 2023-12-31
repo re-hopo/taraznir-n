@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="content">
                                             <h6>
-                                                <a href="{{$item->slug}}">
+                                                <a href="standard/{{$item->slug}}">
                                                     {{$item->title}}
                                                 </a>
                                             </h6>

@@ -13,9 +13,7 @@
                     <div class="inner-box">
 
                         <div class="image">
-                            <a href="/blog/{{$item->slug}}">
-                                <img src="{{$item->images['cover']??''}}" alt="{{$item->title}}" />
-                            </a>
+                            <img src="{{$item->images['single']??''}}" alt="{{$item->title}}" />
                             <div class="post-date">
                                 {!!str_replace('_' ,'<br/>' ,Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'m _ F' ))!!}
                             </div>
@@ -57,8 +55,8 @@
                                 {!!$item->content!!}
                             </div>
 
-                            <x-blog::share-blog :links="$this->share"/>
-                            <x-blog::more-blog :next="$this->next" :previous="$this->previous" />
+                            <x-theme::share-post :links="$this->share"/>
+                            <x-theme::more-posts :next="$this->next" :previous="$this->previous" />
                         </div>
 
                         <livewire:theme::components.comment-list />

@@ -48,3 +48,13 @@
 .drop-block.mix{
     display:none;
 }
+
+
+.service-detail-page .social-box{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #E0DDE5;
+    border-top: none;
+}

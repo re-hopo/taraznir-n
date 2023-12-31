@@ -39,10 +39,10 @@
                                 <div class="inner-box">
                                     <div class="image">
                                         <a href="/blog/{{$item->slug}}">
-                                            <img src="{{$item->images['cover']??''}}" alt="{{$item->title}}" />
+                                            <img src="{{$item->images['single']??''}}" alt="{{$item->title}}" />
                                         </a>
                                         <div class="post-date">
-                                            24 <br/> Feb
+                                            {!!str_replace('_' ,'<br/>' ,Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'m _ F' ))!!}
                                         </div>
                                     </div>
                                     <div class="lower-content" dir="rtl">

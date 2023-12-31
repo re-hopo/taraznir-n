@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Route;
+use Modules\Standard\Livewire\StandardDetail;
 use Modules\Standard\Livewire\StandardPage;
 
 Route::get('/standard' , StandardPage::class)

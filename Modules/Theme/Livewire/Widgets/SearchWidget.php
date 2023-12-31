@@ -18,17 +18,19 @@ class SearchWidget extends Component
         $this->isDetailPage = $isDetailPage;
     }
 
+
     public function clearFilter(): void
     {
         $this->keyword = null;
         $this->dispatch('setSearching' ,null );
     }
 
+
     public function submit(): void
     {
         $this->keyword = trim($this->keyword);
         if( $this->isDetailPage )
-            $this->redirectRoute("search" ,[
+            $this->redirectRoute('search' ,[
                 'keyword' => $this->keyword,
                 'model'   => $this->model,
             ]);

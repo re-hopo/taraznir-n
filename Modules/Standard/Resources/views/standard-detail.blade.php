@@ -4,63 +4,31 @@
 @endsection
 
 
-<div class="sidebar-page-container">
-    <div class="auto-container">
-        <div class="row clearfix">
+<div class="sidebar-page-container service-detail-page">
+    <div class="container">
+        <div class="row mt-none-30">
 
             <div class="content-side col-xl-9 col-lg-8 col-md-12 col-sm-12 right-sidebar">
-                <div class="blog-detail">
+                <div>
                     <div class="inner-box">
 
-                        <div class="image">
-                            <a href="/blog/{{$item->slug}}">
-                                <img src="{{$item->images['cover']??''}}" alt="{{$item->title}}" />
-                            </a>
-                            <div class="post-date">
-                                {!!str_replace('_' ,'<br/>' ,Helpers::jalaliToGregorianAndConversely($item->created_at ,format:'m _ F' ))!!}
-                            </div>
+                        <div class="portfolio-single__thumb mb-30">
+                            <img src="{{$item->images['single']??''}}" alt="{{$item->title}}" />
+                        </div>
+                        <h2>{{$item->title}}</h2>
+
+                        <div class="content">
+                            {!! $item->summary !!}
                         </div>
 
-                        <div class="lower-content" dir="rtl">
-                            <div class="blog-extra-details">
-                                <div class="tags">
-                                    <span># دسته‌بندی‌ها</span>
-                                    @if($item->category)
-                                        @foreach($item->category as $category)
-                                            <a href="/blog/category/{{$category->slug}}">
-                                                {{$category->title}}
-                                            </a>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <ul class="post-meta d-flex align-items-center flex-wrap clearfix" dir="rtl">
-                                    <li>
-                                    <span class="author">
-                                        <img src="/images/resource/author-4.jpg" alt="{{$item->user->name}}"/>
-                                    </span>
-                                        {{$item->user->name}}
-                                    </li>
-                                    @if($item->comment->count())
-                                        <li>
-                                            <span class="icon flaticon-bubble-chat"></span>
-                                            {{$item->comment->count()}}
-                                        </li>
-                                    @endif
-                                    <li>
-                                        <span class="icon flaticon-clock"></span>
-                                        {{Helpers::getMetaValueByKey($item->meta ,'read_time' ,5)}}
-                                        دقیقه
-                                    </li>
-                                </ul>
+                        <div class="row mb-30 mt-none-30">
+                            <div class="col-lg-6 col-md-6 com-sm-6 mt-30">
+                                <img src="/images/gallery/2.jpg" alt="">
                             </div>
-                            <div class="text" style="margin-bottom: 160px">
-                                {!!$item->content!!}
+                            <div class="col-lg-6 col-md-6 com-sm-6 mt-30">
+                                <img src="/images/gallery/3.jpg" alt="">
                             </div>
-
-                            <x-blog::share-blog :links="$this->share"/>
-                            <x-blog::more-blog :next="$this->next" :previous="$this->previous" />
                         </div>
-
 
                     </div>
                 </div>
@@ -69,13 +37,31 @@
 
             <div class="sidebar-side col-xl-3 col-lg-4 col-md-12 col-sm-12 left-sidebar">
                 <aside class="sidebar sticky-top">
-                    <div class="sidebar-inner">
-                        <livewire:theme::widgets.search-widget :model="'Blog'" :isDetailPage="true"/>
-                        <livewire:theme::widgets.category-widget :model="'Blog'" :items="$this->categories" :isDetailPage="true"/>
-                        <livewire:theme::widgets.posts-widget :model="'Blog'" :object="$this->object"/>
+                    <div>
+                        @php
+                            $items =
+                                [
+                                    __('standard::standard.country')   => Helpers::getMetaValueByKey($item->meta ,'country'   ,'-'),                                    __('standard::standard.year')      => Helpers::getMetaValueByKey($item->meta ,'year'      ,'-'),
+                                    __('standard::standard.group')     => Helpers::getMetaValueByKey($item->meta ,'group'     ,'-'),
+                                    __('standard::standard.presenter') => Helpers::getMetaValueByKey($item->meta ,'presenter' ,'-'),
+                                ];
+                        @endphp
+                        <livewire:theme::widgets.info-list-widget
+                            :title="__('standard::standard.standard_detail')"
+                            :items="$items"
+                        />
+
+                        <x-theme::share-post :title="''" :container="false" :links="$this->share"/>
+
+                        <livewire:theme::widgets.attachment-widget
+                            :title="__('standard::standard.standard_detail')"
+                            :items="$items"
+                        />
                     </div>
+
                 </aside>
             </div>
+
 
         </div>
     </div>

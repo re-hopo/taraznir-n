@@ -1,5 +1,6 @@
 <?php
 return [
+    'share' => 'اشتراک گذاری',
     'comment' => [
         'title' => 'فرم ارسال نظر',
         'comments' => 'نظرات',
