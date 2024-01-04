@@ -9189,10 +9189,11 @@ footer .post-widget .post .thumb:before{
     padding: 10px 35px 10px 4px;
     font-weight: 700;
     display: block;
-    font-size: var(--font-16);
+    font-size: var(--font-13);
     color: rgb(0 0 0);
     background-color: var(--white-color);
     text-align: right;
+    font-family: var(--font-family-Azarmehr);
 }
 
 .download-file li a .icon{

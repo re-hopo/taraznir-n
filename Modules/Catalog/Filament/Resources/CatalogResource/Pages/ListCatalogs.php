@@ -2,8 +2,8 @@
 
 namespace Modules\Catalog\Filament\Resources\CatalogResource\Pages;
 
+use Filament\Actions\CreateAction;
 use Modules\Catalog\Filament\Resources\CatalogResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListCatalogs extends ListRecords
@@ -13,7 +13,7 @@ class ListCatalogs extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

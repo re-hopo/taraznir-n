@@ -6,6 +6,7 @@ namespace Modules\Theme\Filament;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Modules\Blog\Filament\Resources\BlogResource;
+use Modules\Catalog\Filament\Resources\CatalogResource;
 use Modules\News\Filament\Resources\NewsResource;
 use Modules\Project\Filament\Resources\ProjectResource;
 use Modules\Service\Filament\Resources\ServiceResource;
@@ -30,11 +31,12 @@ class ResourcesList implements Plugin
                 OptionResource::class,
                 CategoryResource::class,
                 BlogResource::class,
-                StandardResource::class,
                 ProjectResource::class,
                 NewsResource::class,
                 TutorialResource::class,
-                ServiceResource::class
+                ServiceResource::class,
+                CatalogResource::class,
+                StandardResource::class,
             ])
             ->pages([
 //                Settings::class,

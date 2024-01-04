@@ -25,7 +25,6 @@ class StandardFactory extends Factory
             'title'   => fake()->realText(80 ),
             'slug'    => fake()->slug(),
             'summary' => fake()->realText(300),
-            'content' => fake()->randomHtml(10),
             'cover'   => fake()->imageUrl(640, 480, 'technology' ,gray: true ),
             'status'  => fake()->randomElement(['publish' ,'draft']),
             'chosen'  => fake()->randomNumber(),

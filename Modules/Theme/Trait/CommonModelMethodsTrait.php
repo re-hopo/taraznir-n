@@ -71,7 +71,7 @@ trait CommonModelMethodsTrait {
 
     protected function getImagesAttribute(): array
     {
-        $media = $this->getMedia('*')->first();
+        $media = $this->getMedia('default')->first();
         if($media){
             return [
                 'thumbnail' => $media->getUrl('thumbnail'),

@@ -1,28 +1,27 @@
 <?php
 
-namespace Modules\Standard\Livewire;
+namespace Modules\Catalog\Livewire;
 
 use Illuminate\View\View;
 use Jorenvh\Share\Share;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use Modules\Standard\Models\Standard;
+use Modules\Catalog\Models\Catalog;
 use Modules\Theme\Helpers\Helpers;
-use Modules\Theme\Models\Option;
 use Modules\Theme\Trait\CommonLivewireComponentTrait;
 
-class StandardDetail extends Component
+class CatalogDetail extends Component
 {
     use CommonLivewireComponentTrait;
 
-    public string $object   = Standard::class;
-    public string $model    = 'standard';
+    public string $object   = Catalog::class;
+    public string $model    = 'catalog';
     protected $share = '';
     public $item ,$categories ,$options ,$next ,$previous;
     public function mount($slug): void
     {
         $this->item = Helpers::commonRedisFirstQuery(
-            "standard:$slug",
+            "catalog:$slug",
            $this->object,
            ['category' ,'meta' ,'media'],
            ['slug' ,$slug]
@@ -31,16 +30,16 @@ class StandardDetail extends Component
         if( !$this->item )
             abort(404);
 
-        $this->previous = Helpers::redisHandler( "standard:previous-$slug",function (){
+        $this->previous = Helpers::redisHandler( "catalog:previous-$slug",function (){
             return
-                Standard::where('id' ,'<' ,$this->item->id)
+                Catalog::where('id' ,'<' ,$this->item->id)
                     ->orderBy('id' ,'DESC')
                     ->first();
         });
 
-        $this->next = Helpers::redisHandler( "standard:next-$slug" ,function (){
+        $this->next = Helpers::redisHandler( "catalog:next-$slug" ,function (){
             return
-                Standard::where('id' ,'>' ,$this->item->id)
+                Catalog::where('id' ,'>' ,$this->item->id)
                     ->orderBy('id')
                     ->first();
         });
@@ -48,7 +47,7 @@ class StandardDetail extends Component
         $this->categories = self::categories();
 
         $this->share = (new Share)->page(
-            route('standard').$this->item->slug,
+            route('catalog').$this->item->slug,
             $this->item->title,
         )
             ->facebook()
@@ -64,6 +63,6 @@ class StandardDetail extends Component
     #[Layout('theme::layout.app')]
     public function render(): View
     {
-        return view('standard::standard-detail');
+        return view('catalog::catalog-detail');
     }
 }

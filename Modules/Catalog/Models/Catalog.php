@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Catalog\Database\factories\CatalogFactory;
 use Modules\Theme\Trait\CommonModelMethodsTrait;
 use Modules\Theme\Trait\CommonScopesTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
-class Catalog extends Model
+class Catalog extends Model implements HasMedia
 {
-    use CommonScopesTrait ,CommonModelMethodsTrait;
+    use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles;
 
     protected $appends = ['images'];
 
@@ -17,9 +19,6 @@ class Catalog extends Model
         'title',
         'slug',
         'summary',
-        'content',
-        'cover',
-        'thumbnail',
         'status',
         'chosen',
     ];

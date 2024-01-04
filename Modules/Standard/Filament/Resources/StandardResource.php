@@ -39,11 +39,13 @@ class StandardResource extends Resource
                         self::formTitleAndSlug(),
                         self::formCover(),
                         self::formSummary(),
-                        self::formEditor(),
                         self::formMetaKeyOptions([
-                            'author'      => ' نویسنده',
-                            'keywords'    => 'کلمات کلیدی',
-                            'description' => 'توضیحات',
+                            'author'      => __('standard::standard.author'),
+                            'keywords'    => __('standard::standard.keywords'),
+                            'description' => __('standard::standard.description'),
+                            'country'     => __('standard::standard.country'),
+                            'group'       => __('standard::standard.group'),
+                            'presenter'   => __('standard::standard.presenter'),
                         ]),
                     ])->columnSpan(9 ),
                     Grid::make()->schema([

@@ -303,5 +303,38 @@ class Helpers
     }
 
 
-
+    public static function fileExtensionIcon($filename): string
+    {
+        if (!empty($filename)){
+            $ext = pathinfo($filename ,PATHINFO_EXTENSION);
+            switch ( $ext ){
+                case 'pdf':
+                    return '<i class="icon fa fa-file-pdf-o"></i>';
+                case 'docx':
+                case 'doc':
+                case 'txt':
+                    return '<i class="icon fa fa-file-word-o"></i>';
+                case 'xlsx':
+                case 'xls':
+                    return '<i class="icon fa fa-file-excel-o"></i>';
+                case 'pptx':
+                case 'ppt':
+                    return '<i class="icon fa fa-file-powerpoint-o"></i>';
+                case 'rar':
+                case 'zip':
+                    return '<i class="icon fa fa-file-archive-o"></i>';
+                case 'png':
+                case 'gif':
+                case 'jpg':
+                    return '<i class="icon fa fa-file-image-o"></i>';
+                case 'mp3':
+                case 'wma':
+                case 'wav':
+                    return '<i class="icon fa fa-file-audio-o"></i>';
+                case 'mp4':
+                    return '<i class="icon fa fa-file-video-o"></i>';
+            }
+        }
+        return '';
+    }
 }

@@ -1,6 +1,6 @@
 @php use \Modules\Theme\Helpers\Helpers; @endphp
 @section('seo')
-    {!! Helpers::seoTagsGenerator( $item ,null ,"$item->slug تارازنیر |  استاندارد | " ,true) !!}
+    {!! Helpers::seoTagsGenerator( $item ,null ,"$item->slug تارازنیر |  کاتالوگ | " ,true) !!}
 @endsection
 
 
@@ -22,23 +22,20 @@
                         @php
                             $items =
                                 [
-                                    __('standard::standard.title')     => $this->item->title,
-                                    __('standard::standard.country')   => Helpers::getMetaValueByKey($item->meta ,'country'   ,'-'),
-                                    __('standard::standard.year')      => Helpers::getMetaValueByKey($item->meta ,'year'      ,'-'),
-                                    __('standard::standard.group')     => Helpers::getMetaValueByKey($item->meta ,'group'     ,'-'),
-                                    __('standard::standard.presenter') => Helpers::getMetaValueByKey($item->meta ,'presenter' ,'-'),
-                                    __('standard::standard.summary')   => $this->item->summary,
+                                    __('catalog::catalog.title')     => $this->item->title,
+                                    __('catalog::catalog.author')   => Helpers::getMetaValueByKey($item->meta ,'country'   ,'-'),
+                                    __('catalog::catalog.summary')   => $this->item->summary,
                                 ];
                         @endphp
                         <livewire:theme::widgets.info-list-widget
-                            :title="__('standard::standard.detail')"
+                            :title="__('catalog::catalog.detail')"
                             :items="$items"
                         />
 
                         <x-theme::share-post :title="''" :container="false" :links="$this->share"/>
 
                         <livewire:theme::widgets.attachment-widget
-                            :title="__('standard::standard.attachment_files')"
+                            :title="__('catalog::catalog.attachment_files')"
                             :model="$this->item"
                         />
                     </div>

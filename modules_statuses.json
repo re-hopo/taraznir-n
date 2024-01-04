@@ -10,5 +10,6 @@
     "Service": true,
     "Tutorial": true,
     "Theme": true,
-    "Ecommerce": true
+    "Ecommerce": true,
+    "Gallery": true
 }

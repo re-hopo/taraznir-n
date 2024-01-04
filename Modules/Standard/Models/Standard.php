@@ -19,9 +19,6 @@ class Standard extends Model implements HasMedia
         'title',
         'slug',
         'tag',
-        'content',
-        'cover',
-        'thumbnail',
         'status',
         'chosen',
     ];

@@ -8,12 +8,12 @@ use Livewire\Component;
 class AttachmentWidget extends Component
 {
     public ?string $title = '';
-    public ?array $items  = [];
+    public ?object $model = null;
 
-    public function mount($title = '' ,$items= []): void
+    public function mount($title = '' ,$model = []): void
     {
         $this->title = $title;
-        $this->items = $items;
+        $this->model = $model;
     }
 
 
