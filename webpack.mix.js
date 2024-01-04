@@ -29,6 +29,9 @@ mix
         __dirname + '/Modules/Theme/Resources/css/preloader.css',
         __dirname + '/Modules/Theme/Resources/css/custom-animate.css',
         __dirname + '/Modules/Theme/Resources/css/responsive.css',
+        __dirname + '/Modules/Theme/Resources/css/photoswipe-dynamic-caption-plugin.css',
+        __dirname + '/Modules/Theme/Resources/css/photoswipe.css',
+        __dirname + '/Modules/Gallery/Resources/assets/css/gallery.css',
     ], 'public/css/styles.min.css')
 
     .scripts([
@@ -51,7 +54,11 @@ mix
         __dirname + '/Modules/Theme/Resources/js/nav-tool.js',
         __dirname + '/Modules/Theme/Resources/js/sweetalert.js',
         __dirname + '/Modules/Theme/Resources/js/jquery-ui.js',
+        __dirname + '/Modules/Theme/Resources/js/photoswipe.umd.min.js',
+        __dirname + '/Modules/Theme/Resources/js/photoswipe-lightbox.umd.min.js',
+        __dirname + '/Modules/Theme/Resources/js/photoswipe-dynamic-caption-plugin.umd.min.js',
         __dirname + '/Modules/Theme/Resources/js/script.js',
+        __dirname + '/Modules/Gallery/Resources/assets/js/gallery.js',
     ], 'public/js/scripts.min.js')
 
 

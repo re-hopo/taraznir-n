@@ -7,6 +7,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Modules\Blog\Filament\Resources\BlogResource;
 use Modules\Catalog\Filament\Resources\CatalogResource;
+use Modules\Gallery\Filament\Resources\GalleryResource;
 use Modules\News\Filament\Resources\NewsResource;
 use Modules\Project\Filament\Resources\ProjectResource;
 use Modules\Service\Filament\Resources\ServiceResource;
@@ -37,6 +38,7 @@ class ResourcesList implements Plugin
                 ServiceResource::class,
                 CatalogResource::class,
                 StandardResource::class,
+                GalleryResource::class,
             ])
             ->pages([
 //                Settings::class,

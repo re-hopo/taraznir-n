@@ -3,20 +3,25 @@
 namespace Modules\Gallery\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Gallery\Database\factories\GalleryFactory;
+use Laravel\Scout\Searchable;
+use Modules\Theme\Trait\CommonModelMethodsTrait;
+use Modules\Theme\Trait\CommonScopesTrait;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\Permission\Traits\HasRoles;
 
-class Gallery extends Model
+class Gallery extends Model implements HasMedia
 {
-    use HasFactory;
+    use CommonScopesTrait ,CommonModelMethodsTrait ,HasRoles ,Searchable;
 
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
-    
-    protected static function newFactory(): GalleryFactory
-    {
-        //return GalleryFactory::new();
-    }
+    protected $appends = ['images'];
+
+
+    protected $fillable = [
+        'title',
+        'summary',
+        'date',
+        'status',
+    ];
+
+
 }
